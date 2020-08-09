@@ -8,13 +8,13 @@ Hello, world!
 I'm learning clojure, yaayy.
 
 ## Data types
-# Primitives
+### Primitives
 - Numbers -> 1 2 3 
 - Boolean -> true false
 - Char -> \1 \d \*
 - Keyword -> :key
 
-# Complex
+### Complex
 - Map -> {:key "value" :key1 "value"}
 - Vector -> [1 2 3 2 "hey"]
 - Set -> #{1 2 3 4 "hey"}
