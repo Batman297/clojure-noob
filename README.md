@@ -16,6 +16,49 @@ I'm learning clojure, yaayy.
 - Set -> #{1 2 3 4 "hey"}
 - List -> '(1 2 3 4 \s)
 
+### Functions
+- def
+- rem
+- quot
+- str
+- seq
+- not
+- =
+- >
+- <
+- keyword
+- symbol
+- count
+- cons
+- conj
+- peek
+- pop
+- vec
+- vector
+- first
+- last
+- nth
+- subvec
+- list
+- set
+- hash-map
+- get
+- contains?
+- pos?
+- neg?
+- zero?
+- assoc
+- dissoc
+- sort
+- keys
+- vals
+- take
+- drop
+- first
+- second
+- concat
+- range
+- repeat
 
 ## License
 
