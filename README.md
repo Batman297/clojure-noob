@@ -7,6 +7,20 @@ A Clojure library designed to ... well, that part is up to you.
 Hello, world!
 I'm learning clojure, yaayy.
 
+## Data types
+# Primitives
+- Numbers -> 1 2 3 
+- Boolean -> true false
+- Char -> \1 \d \*
+- Keyword -> :key
+
+# Complex
+- Map -> {:key "value" :key1 "value"}
+- Vector -> [1 2 3 2 "hey"]
+- Set -> #{1 2 3 4 "hey"}
+- List -> '(1 2 3 4 \s)
+
+
 ## License
 
 Copyright © 2020 DBetmen
