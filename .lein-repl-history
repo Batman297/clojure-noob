@@ -1,150 +1,8 @@
-(keyword "foo")
-(keyword 123)
-(keyword 'foo)
-(keyword '(foo))
-(keyword foo)
-\_
-\+
-\=
-(symbol "foo")
-(symbol 'foo)
-(= 'foo 'foo)
-(= 'foo "foo")
-(nil)
-nil
-(= 2 nil)
-(= nil nil)
-(= nil)
-(do
-# clojure-noob
-Hello, world!
-I'm learning clojure, yaayy.
-## Data types
-### Primitives
-- Numbers -> 1 2 3 
-- Boolean -> true false
-- Char -> \1 \d \*
-- Keyword -> :key
-### Complex
-- Map -> {:key "value" :key1 "value"}
-- Vector -> [1 2 3 2 "hey"]
-- Set -> #{1 2 3 4 "hey"}
-- List -> '(1 2 3 4 \s)
-### Functions
-- rem
-- quot
-- str
-- seq
-- not
-- =
-- >
-- <
-- keyword
-- symbol
-## License
-Copyright © 2020 dbetmen
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-http://www.eclipse.org/legal/epl-2.0.
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
+    nil
+    (list (first list) (take' (dec m) (rest list)))))
 )
-(do
-# clojure-noob
-Hello, world!
-I'm learning clojure, yaayy.
-## Data types
-### Primitives
-- Numbers -> 1 2 3 
-- Boolean -> true false
-- Char -> \1 \d \*
-- Keyword -> :key
-### Complex
-- Map -> {:key "value" :key1 "value"}
-- Vector -> [1 2 3 2 "hey"]
-- Set -> #{1 2 3 4 "hey"}
-- List -> '(1 2 3 4 \s)
-### Functions
-- rem
-- quot
-- str
-- seq
-- not
-- =
-- >
-- <
-- keyword
-- symbol
-## License
-Copyright © 2020 dbetmen
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-http://www.eclipse.org/legal/epl-2.0.
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-                                                                   option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
-)
-(= "foo" :foo 'foo)
-(= "foo" 'foo)
-(= "foo" :foo 'foo)
-(= [1 2] '(1 2))
-(= [1 2] '(1 2) #{1 2})
-(= [1 2] #{1 2})
-(= [1 2] [1 2])
-(= '(1 2) #{1 2})
-(count myvec)
-(do
-(ns clojure-noob.core)
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
-(def mylist '(1 2 3 4 5 6 7 8 9 10))
-(def myvec [1 2 3 4 5 6 7 8 9 10])
-(def myset #{1 2 3 4 5 6 7 8 9 10})
-(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
-)
-(count myvec)
-(cons :a '(:b :c :d :e))
-(cons :d mylist)
-(conj :d mylist)
-(cons :d mylist)
-(cons :d :d :adf mylist)
-(cons mylist :d)
-(conj mylist :d)
-(conj myvec :d)
-(conj mylist :d :d :a)
-(conj myvec :d :d :a)
-(conj myset :d :d :a)
-(conj mymap :d :d :d :a)
-(vec '(1))
-(vec 1 23  4)
-(vector 1 23 4 5)
-(vec '(1 2 3 54 5))
-(nth mylist 2)
-(nth myvec 2)
-(nth myvec 34)
-(nth myvec 34 123)
-(list 123 23)
-(set [ 12 32 3 123])
-(hash-map :a 1)
-(map mylist)
-(hash-map :a 1 :b 2)
-(get mylist 2)
-(get mylist 1)
-mylist
-(get mymap )
-mymap
-(do
-{:a 1 :b 2 :c 3 :d 4 :e 5}
-)
+(take' 2 [1 2 3 4])
+(list 1 2 3 4)
 (do
 (ns clojure-noob.core)
 (defn foo
@@ -158,25 +16,485 @@ mymap
 (def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
 (def mykeylist '(:a :b :c :d))
 (def mykeyvec [:a :b :c :d])
+(defn square 
+  [x] 
+  (* x x))
+;; ini comment gk bakal di evaluate
+(defn pk
+  [a b c]
+  (fn [x]
+    (+ (* a (square x))
+       (* b x)
+       c)))
+(defn mutlak
+  [x]
+  (if (pos? x) x (- x)))
+(defn explain
+  [something]
+  (case something
+    :a "yeeey aaa"
+    :b "ini b"
+    :nothing
+    :else))
+;; rumus kecap
+(defn kecap
+  [a b c]
+  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
+    [(/ (- (- b) adet) (* 2 a))
+     (/ (+ (- b) adet) (* 2 a))]))
+;; create functions
+(defn take'
+  [m lst]
+  (if (= m 0)
+    nil
+    (list (first lst) (take' (dec m) (rest lst)))))
 )
-mymap
-(get mymap :a)
-(get mymap 2)
-(mymap :a)
-(:a mymap)
-(pos? 2)
-(neg? 23)
-(contains? 1)
-(contains? myvec)
-(contain mymap)
-(contains mymap)
-(contains mymap :a)
-(contains? mymap)
-(contains? mymap :a)
-(concat mylist myvec)
-(range 10)
-(range 10 2)
-(range 1 100)
-(range 1 10)
-(repeat 2 100)
-(repeat 23123 1)
+(list 1 2 3 4)
+(take' 2 [1 2 3 4])
+(conj [1 2] 2)
+(conj [1 2] 3)
+(conj [1] 3)
+(do
+(ns clojure-noob.core)
+(defn foo
+  "I don't do a whole lot."
+  [x]
+  (println x "Hello, World!"))
+(def mylist '(1 2 3 4 5 6 7 8 9 10))
+(def myvec [1 2 3 4 5 6 7 8 9 10])
+(def myset #{1 2 3 4 5 6 7 8 9 10})
+(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
+(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
+(def mykeylist '(:a :b :c :d))
+(def mykeyvec [:a :b :c :d])
+(defn square 
+  [x] 
+  (* x x))
+;; ini comment gk bakal di evaluate
+(defn pk
+  [a b c]
+  (fn [x]
+    (+ (* a (square x))
+       (* b x)
+       c)))
+(defn mutlak
+  [x]
+  (if (pos? x) x (- x)))
+(defn explain
+  [something]
+  (case something
+    :a "yeeey aaa"
+    :b "ini b"
+    :nothing
+    :else))
+;; rumus kecap
+(defn kecap
+  [a b c]
+  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
+    [(/ (- (- b) adet) (* 2 a))
+     (/ (+ (- b) adet) (* 2 a))]))
+;; create functions
+(defn take'
+  [m lst]
+  (if (= m 0)
+    nil
+    (conj [(first lst)] (take' (dec m) (rest lst)))))
+)
+(take' 2 [1 2 3 4])
+(do
+(ns clojure-noob.core)
+(defn foo
+  "I don't do a whole lot."
+  [x]
+  (println x "Hello, World!"))
+(def mylist '(1 2 3 4 5 6 7 8 9 10))
+(def myvec [1 2 3 4 5 6 7 8 9 10])
+(def myset #{1 2 3 4 5 6 7 8 9 10})
+(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
+(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
+(def mykeylist '(:a :b :c :d))
+(def mykeyvec [:a :b :c :d])
+(defn square 
+  [x] 
+  (* x x))
+;; ini comment gk bakal di evaluate
+(defn pk
+  [a b c]
+  (fn [x]
+    (+ (* a (square x))
+       (* b x)
+       c)))
+(defn mutlak
+  [x]
+  (if (pos? x) x (- x)))
+(defn explain
+  [something]
+  (case something
+    :a "yeeey aaa"
+    :b "ini b"
+    :nothing
+    :else))
+;; rumus kecap
+(defn kecap
+  [a b c]
+  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
+    [(/ (- (- b) adet) (* 2 a))
+     (/ (+ (- b) adet) (* 2 a))]))
+;; create functions
+(defn take'
+  [m lst]
+  (if (= m 0)
+    nil
+    (cons (first lst) (take' (dec m) (rest lst)))))
+)
+(take' 2 [1 2 3 4])
+(take' 3 [1 2 3 4])
+(cons 1 2)
+(cons '(1) 2)
+(cons 1 '(2))
+(do
+(ns clojure-noob.core)
+(defn foo
+  "I don't do a whole lot."
+  [x]
+  (println x "Hello, World!"))
+(def mylist '(1 2 3 4 5 6 7 8 9 10))
+(def myvec [1 2 3 4 5 6 7 8 9 10])
+(def myset #{1 2 3 4 5 6 7 8 9 10})
+(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
+(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
+(def mykeylist '(:a :b :c :d))
+(def mykeyvec [:a :b :c :d])
+(defn square 
+  [x] 
+  (* x x))
+;; ini comment gk bakal di evaluate
+(defn pk
+  [a b c]
+  (fn [x]
+    (+ (* a (square x))
+       (* b x)
+       c)))
+(defn mutlak
+  [x]
+  (if (pos? x) x (- x)))
+(defn explain
+  [something]
+  (case something
+    :a "yeeey aaa"
+    :b "ini b"
+    :nothing
+    :else))
+;; rumus kecap
+(defn kecap
+  [a b c]
+  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
+    [(/ (- (- b) adet) (* 2 a))
+     (/ (+ (- b) adet) (* 2 a))]))
+;; create functions
+(defn take'
+  [m lst]
+  (if (= m 0)
+    nil
+    (cons (first lst) (take' (dec m) (rest lst)))))
+(defn sum'
+  [lst]
+  (+ (first lst) (sum' (rest lst))))
+)
+(sum' [1 2 3 4])
+(contains? [])
+(contain? [])
+(empty? [])
+(do
+(ns clojure-noob.core)
+(defn foo
+  "I don't do a whole lot."
+  [x]
+  (println x "Hello, World!"))
+(def mylist '(1 2 3 4 5 6 7 8 9 10))
+(def myvec [1 2 3 4 5 6 7 8 9 10])
+(def myset #{1 2 3 4 5 6 7 8 9 10})
+(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
+(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
+(def mykeylist '(:a :b :c :d))
+(def mykeyvec [:a :b :c :d])
+(defn square 
+  [x] 
+  (* x x))
+;; ini comment gk bakal di evaluate
+(defn pk
+  [a b c]
+  (fn [x]
+    (+ (* a (square x))
+       (* b x)
+       c)))
+(defn mutlak
+  [x]
+  (if (pos? x) x (- x)))
+(defn explain
+  [something]
+  (case something
+    :a "yeeey aaa"
+    :b "ini b"
+    :nothing
+    :else))
+;; rumus kecap
+(defn kecap
+  [a b c]
+  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
+    [(/ (- (- b) adet) (* 2 a))
+     (/ (+ (- b) adet) (* 2 a))]))
+;; create functions
+(defn take'
+  [m lst]
+  (if (= m 0)
+    nil
+    (cons (first lst) (take' (dec m) (rest lst)))))
+(defn sum'
+  [lst]
+  (if (empty? lst)
+    0
+    (+ (first lst) (sum' (rest lst)))))
+)
+(sum' [1 2 3 4])
+(sum' [1 2 3 4 5])
+(do
+(ns clojure-noob.core)
+(defn foo
+  "I don't do a whole lot."
+  [x]
+  (println x "Hello, World!"))
+(def mylist '(1 2 3 4 5 6 7 8 9 10))
+(def myvec [1 2 3 4 5 6 7 8 9 10])
+(def myset #{1 2 3 4 5 6 7 8 9 10})
+(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
+(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
+(def mykeylist '(:a :b :c :d))
+(def mykeyvec [:a :b :c :d])
+(defn square 
+  [x] 
+  (* x x))
+;; ini comment gk bakal di evaluate
+(defn pk
+  [a b c]
+  (fn [x]
+    (+ (* a (square x))
+       (* b x)
+       c)))
+(defn mutlak
+  [x]
+  (if (pos? x) x (- x)))
+(defn explain
+  [something]
+  (case something
+    :a "yeeey aaa"
+    :b "ini b"
+    :nothing
+    :else))
+;; rumus kecap
+(defn kecap
+  [a b c]
+  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
+    [(/ (- (- b) adet) (* 2 a))
+     (/ (+ (- b) adet) (* 2 a))]))
+;; create functions
+(defn take'
+  [m lst]
+  (if (= m 0)
+    nil
+    (cons (first lst) (take' (dec m) (rest lst)))))
+(defn sum'
+  [lst]
+  (if (empty? lst)
+    0
+    (+ (first lst) (sum' (rest lst)))))
+(defn product'
+  [m lst]
+  (if (empty? lst)
+    1
+    (* (first lst) (product' (rest lst)))))
+)
+(product' mylist)
+(do
+(ns clojure-noob.core)
+(defn foo
+  "I don't do a whole lot."
+  [x]
+  (println x "Hello, World!"))
+(def mylist '(1 2 3 4 5 6 7 8 9 10))
+(def myvec [1 2 3 4 5 6 7 8 9 10])
+(def myset #{1 2 3 4 5 6 7 8 9 10})
+(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
+(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
+(def mykeylist '(:a :b :c :d))
+(def mykeyvec [:a :b :c :d])
+(defn square 
+  [x] 
+  (* x x))
+;; ini comment gk bakal di evaluate
+(defn pk
+  [a b c]
+  (fn [x]
+    (+ (* a (square x))
+       (* b x)
+       c)))
+(defn mutlak
+  [x]
+  (if (pos? x) x (- x)))
+(defn explain
+  [something]
+  (case something
+    :a "yeeey aaa"
+    :b "ini b"
+    :nothing
+    :else))
+;; rumus kecap
+(defn kecap
+  [a b c]
+  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
+    [(/ (- (- b) adet) (* 2 a))
+     (/ (+ (- b) adet) (* 2 a))]))
+;; create functions
+(defn take'
+  [m lst]
+  (if (= m 0)
+    nil
+    (cons (first lst) (take' (dec m) (rest lst)))))
+(defn sum'
+  [lst]
+  (if (empty? lst)
+    0
+    (+ (first lst) (sum' (rest lst)))))
+(defn product'
+  [lst]
+  (if (empty? lst)
+    1
+    (* (first lst) (product' (rest lst)))))
+)
+(product' mylist)
+(product' myvec)
+(product' myset)
+(do
+(ns clojure-noob.core)
+(defn foo
+  "I don't do a whole lot."
+  [x]
+  (println x "Hello, World!"))
+(def mylist '(1 2 3 4 5 6 7 8 9 10))
+(def myvec [1 2 3 4 5 6 7 8 9 10])
+(def myset #{1 2 3 4 5 6 7 8 9 10})
+(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
+(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
+(def mykeylist '(:a :b :c :d))
+(def mykeyvec [:a :b :c :d])
+(defn square 
+  [x] 
+  (* x x))
+;; ini comment gk bakal di evaluate
+(defn pk
+  [a b c]
+  (fn [x]
+    (+ (* a (square x))
+       (* b x)
+       c)))
+(defn mutlak
+  [x]
+  (if (pos? x) x (- x)))
+(defn explain
+  [something]
+  (case something
+    :a "yeeey aaa"
+    :b "ini b"
+    :nothing
+    :else))
+;; rumus kecap
+(defn kecap
+  [a b c]
+  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
+    [(/ (- (- b) adet) (* 2 a))
+     (/ (+ (- b) adet) (* 2 a))]))
+;; create functions
+(defn take'
+  [m lst]
+  (if (= m 0)
+    nil
+    (cons (first lst) (take' (dec m) (rest lst)))))
+(defn sum'
+  [lst]
+  (if (empty? lst)
+    0
+    (+ (first lst) (sum' (rest lst)))))
+(defn product'
+  [lst]
+  (if (empty? lst)
+    1
+    (* (first lst) (product' (rest lst)))))
+(defn drop'
+  [m lst]
+  (if (= m 0)
+    lst
+    (cons (drop' (dec m) (rest lst)))))
+)
+(drop' 2 myvec)
+(do
+(ns clojure-noob.core)
+(defn foo
+  "I don't do a whole lot."
+  [x]
+  (println x "Hello, World!"))
+(def mylist '(1 2 3 4 5 6 7 8 9 10))
+(def myvec [1 2 3 4 5 6 7 8 9 10])
+(def myset #{1 2 3 4 5 6 7 8 9 10})
+(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
+(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
+(def mykeylist '(:a :b :c :d))
+(def mykeyvec [:a :b :c :d])
+(defn square 
+  [x] 
+  (* x x))
+;; ini comment gk bakal di evaluate
+(defn pk
+  [a b c]
+  (fn [x]
+    (+ (* a (square x))
+       (* b x)
+       c)))
+(defn mutlak
+  [x]
+  (if (pos? x) x (- x)))
+(defn explain
+  [something]
+  (case something
+    :a "yeeey aaa"
+    :b "ini b"
+    :nothing
+    :else))
+;; rumus kecap
+(defn kecap
+  [a b c]
+  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
+    [(/ (- (- b) adet) (* 2 a))
+     (/ (+ (- b) adet) (* 2 a))]))
+;; create functions
+(defn take'
+  [m lst]
+  (if (= m 0)
+    nil
+    (cons (first lst) (take' (dec m) (rest lst)))))
+(defn sum'
+  [lst]
+  (if (empty? lst)
+    0
+    (+ (first lst) (sum' (rest lst)))))
+(defn product'
+  [lst]
+  (if (empty? lst)
+    1
+    (* (first lst) (product' (rest lst)))))
+(defn drop'
+  [m lst]
+  (if (= m 0)
+    lst
+    (drop' (dec m) (rest lst))))
+)
+(drop' 2 myvec)
