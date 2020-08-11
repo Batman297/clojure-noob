@@ -1,33 +1,3 @@
-    nil
-    (list (first list) (take' (dec m) (rest list)))))
-)
-(take' 2 [1 2 3 4])
-(list 1 2 3 4)
-(do
-(ns clojure-noob.core)
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
-(def mylist '(1 2 3 4 5 6 7 8 9 10))
-(def myvec [1 2 3 4 5 6 7 8 9 10])
-(def myset #{1 2 3 4 5 6 7 8 9 10})
-(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
-(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
-(def mykeylist '(:a :b :c :d))
-(def mykeyvec [:a :b :c :d])
-(defn square 
-  [x] 
-  (* x x))
-;; ini comment gk bakal di evaluate
-(defn pk
-  [a b c]
-  (fn [x]
-    (+ (* a (square x))
-       (* b x)
-       c)))
-(defn mutlak
-  [x]
   (if (pos? x) x (- x)))
 (defn explain
   [something]
@@ -45,447 +15,14 @@
 ;; create functions
 (defn take'
   [m lst]
-  (if (= m 0)
-    nil
-    (list (first lst) (take' (dec m) (rest lst)))))
-)
-(list 1 2 3 4)
-(take' 2 [1 2 3 4])
-(conj [1 2] 2)
-(conj [1 2] 3)
-(conj [1] 3)
-(do
-(ns clojure-noob.core)
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
-(def mylist '(1 2 3 4 5 6 7 8 9 10))
-(def myvec [1 2 3 4 5 6 7 8 9 10])
-(def myset #{1 2 3 4 5 6 7 8 9 10})
-(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
-(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
-(def mykeylist '(:a :b :c :d))
-(def mykeyvec [:a :b :c :d])
-(defn square 
-  [x] 
-  (* x x))
-;; ini comment gk bakal di evaluate
-(defn pk
-  [a b c]
-  (fn [x]
-    (+ (* a (square x))
-       (* b x)
-       c)))
-(defn mutlak
-  [x]
-  (if (pos? x) x (- x)))
-(defn explain
-  [something]
-  (case something
-    :a "yeeey aaa"
-    :b "ini b"
-    :nothing
-    :else))
-;; rumus kecap
-(defn kecap
-  [a b c]
-  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
-    [(/ (- (- b) adet) (* 2 a))
-     (/ (+ (- b) adet) (* 2 a))]))
-;; create functions
-(defn take'
-  [m lst]
-  (if (= m 0)
-    nil
-    (conj [(first lst)] (take' (dec m) (rest lst)))))
-)
-(take' 2 [1 2 3 4])
-(do
-(ns clojure-noob.core)
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
-(def mylist '(1 2 3 4 5 6 7 8 9 10))
-(def myvec [1 2 3 4 5 6 7 8 9 10])
-(def myset #{1 2 3 4 5 6 7 8 9 10})
-(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
-(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
-(def mykeylist '(:a :b :c :d))
-(def mykeyvec [:a :b :c :d])
-(defn square 
-  [x] 
-  (* x x))
-;; ini comment gk bakal di evaluate
-(defn pk
-  [a b c]
-  (fn [x]
-    (+ (* a (square x))
-       (* b x)
-       c)))
-(defn mutlak
-  [x]
-  (if (pos? x) x (- x)))
-(defn explain
-  [something]
-  (case something
-    :a "yeeey aaa"
-    :b "ini b"
-    :nothing
-    :else))
-;; rumus kecap
-(defn kecap
-  [a b c]
-  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
-    [(/ (- (- b) adet) (* 2 a))
-     (/ (+ (- b) adet) (* 2 a))]))
-;; create functions
-(defn take'
-  [m lst]
-  (if (= m 0)
+  (if (or (= m 0) (empty? lst))
     nil
     (cons (first lst) (take' (dec m) (rest lst)))))
-)
-(take' 2 [1 2 3 4])
-(take' 3 [1 2 3 4])
-(cons 1 2)
-(cons '(1) 2)
-(cons 1 '(2))
-(do
-(ns clojure-noob.core)
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
-(def mylist '(1 2 3 4 5 6 7 8 9 10))
-(def myvec [1 2 3 4 5 6 7 8 9 10])
-(def myset #{1 2 3 4 5 6 7 8 9 10})
-(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
-(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
-(def mykeylist '(:a :b :c :d))
-(def mykeyvec [:a :b :c :d])
-(defn square 
-  [x] 
-  (* x x))
-;; ini comment gk bakal di evaluate
-(defn pk
-  [a b c]
-  (fn [x]
-    (+ (* a (square x))
-       (* b x)
-       c)))
-(defn mutlak
-  [x]
-  (if (pos? x) x (- x)))
-(defn explain
-  [something]
-  (case something
-    :a "yeeey aaa"
-    :b "ini b"
-    :nothing
-    :else))
-;; rumus kecap
-(defn kecap
-  [a b c]
-  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
-    [(/ (- (- b) adet) (* 2 a))
-     (/ (+ (- b) adet) (* 2 a))]))
-;; create functions
-(defn take'
-  [m lst]
-  (if (= m 0)
-    nil
-    (cons (first lst) (take' (dec m) (rest lst)))))
-(defn sum'
-  [lst]
-  (+ (first lst) (sum' (rest lst))))
-)
-(sum' [1 2 3 4])
-(contains? [])
-(contain? [])
-(empty? [])
-(do
-(ns clojure-noob.core)
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
-(def mylist '(1 2 3 4 5 6 7 8 9 10))
-(def myvec [1 2 3 4 5 6 7 8 9 10])
-(def myset #{1 2 3 4 5 6 7 8 9 10})
-(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
-(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
-(def mykeylist '(:a :b :c :d))
-(def mykeyvec [:a :b :c :d])
-(defn square 
-  [x] 
-  (* x x))
-;; ini comment gk bakal di evaluate
-(defn pk
-  [a b c]
-  (fn [x]
-    (+ (* a (square x))
-       (* b x)
-       c)))
-(defn mutlak
-  [x]
-  (if (pos? x) x (- x)))
-(defn explain
-  [something]
-  (case something
-    :a "yeeey aaa"
-    :b "ini b"
-    :nothing
-    :else))
-;; rumus kecap
-(defn kecap
-  [a b c]
-  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
-    [(/ (- (- b) adet) (* 2 a))
-     (/ (+ (- b) adet) (* 2 a))]))
-;; create functions
-(defn take'
-  [m lst]
-  (if (= m 0)
-    nil
-    (cons (first lst) (take' (dec m) (rest lst)))))
-(defn sum'
+(defn sum
   [lst]
   (if (empty? lst)
-    0
-    (+ (first lst) (sum' (rest lst)))))
-)
-(sum' [1 2 3 4])
-(sum' [1 2 3 4 5])
-(do
-(ns clojure-noob.core)
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
-(def mylist '(1 2 3 4 5 6 7 8 9 10))
-(def myvec [1 2 3 4 5 6 7 8 9 10])
-(def myset #{1 2 3 4 5 6 7 8 9 10})
-(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
-(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
-(def mykeylist '(:a :b :c :d))
-(def mykeyvec [:a :b :c :d])
-(defn square 
-  [x] 
-  (* x x))
-;; ini comment gk bakal di evaluate
-(defn pk
-  [a b c]
-  (fn [x]
-    (+ (* a (square x))
-       (* b x)
-       c)))
-(defn mutlak
-  [x]
-  (if (pos? x) x (- x)))
-(defn explain
-  [something]
-  (case something
-    :a "yeeey aaa"
-    :b "ini b"
-    :nothing
-    :else))
-;; rumus kecap
-(defn kecap
-  [a b c]
-  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
-    [(/ (- (- b) adet) (* 2 a))
-     (/ (+ (- b) adet) (* 2 a))]))
-;; create functions
-(defn take'
-  [m lst]
-  (if (= m 0)
-    nil
-    (cons (first lst) (take' (dec m) (rest lst)))))
-(defn sum'
-  [lst]
-  (if (empty? lst)
-    0
-    (+ (first lst) (sum' (rest lst)))))
-(defn product'
-  [m lst]
-  (if (empty? lst)
-    1
-    (* (first lst) (product' (rest lst)))))
-)
-(product' mylist)
-(do
-(ns clojure-noob.core)
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
-(def mylist '(1 2 3 4 5 6 7 8 9 10))
-(def myvec [1 2 3 4 5 6 7 8 9 10])
-(def myset #{1 2 3 4 5 6 7 8 9 10})
-(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
-(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
-(def mykeylist '(:a :b :c :d))
-(def mykeyvec [:a :b :c :d])
-(defn square 
-  [x] 
-  (* x x))
-;; ini comment gk bakal di evaluate
-(defn pk
-  [a b c]
-  (fn [x]
-    (+ (* a (square x))
-       (* b x)
-       c)))
-(defn mutlak
-  [x]
-  (if (pos? x) x (- x)))
-(defn explain
-  [something]
-  (case something
-    :a "yeeey aaa"
-    :b "ini b"
-    :nothing
-    :else))
-;; rumus kecap
-(defn kecap
-  [a b c]
-  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
-    [(/ (- (- b) adet) (* 2 a))
-     (/ (+ (- b) adet) (* 2 a))]))
-;; create functions
-(defn take'
-  [m lst]
-  (if (= m 0)
-    nil
-    (cons (first lst) (take' (dec m) (rest lst)))))
-(defn sum'
-  [lst]
-  (if (empty? lst)
-    0
-    (+ (first lst) (sum' (rest lst)))))
-(defn product'
-  [lst]
-  (if (empty? lst)
-    1
-    (* (first lst) (product' (rest lst)))))
-)
-(product' mylist)
-(product' myvec)
-(product' myset)
-(do
-(ns clojure-noob.core)
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
-(def mylist '(1 2 3 4 5 6 7 8 9 10))
-(def myvec [1 2 3 4 5 6 7 8 9 10])
-(def myset #{1 2 3 4 5 6 7 8 9 10})
-(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
-(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
-(def mykeylist '(:a :b :c :d))
-(def mykeyvec [:a :b :c :d])
-(defn square 
-  [x] 
-  (* x x))
-;; ini comment gk bakal di evaluate
-(defn pk
-  [a b c]
-  (fn [x]
-    (+ (* a (square x))
-       (* b x)
-       c)))
-(defn mutlak
-  [x]
-  (if (pos? x) x (- x)))
-(defn explain
-  [something]
-  (case something
-    :a "yeeey aaa"
-    :b "ini b"
-    :nothing
-    :else))
-;; rumus kecap
-(defn kecap
-  [a b c]
-  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
-    [(/ (- (- b) adet) (* 2 a))
-     (/ (+ (- b) adet) (* 2 a))]))
-;; create functions
-(defn take'
-  [m lst]
-  (if (= m 0)
-    nil
-    (cons (first lst) (take' (dec m) (rest lst)))))
-(defn sum'
-  [lst]
-  (if (empty? lst)
-    0
-    (+ (first lst) (sum' (rest lst)))))
-(defn product'
-  [lst]
-  (if (empty? lst)
-    1
-    (* (first lst) (product' (rest lst)))))
-(defn drop'
-  [m lst]
-  (if (= m 0)
-    lst
-    (cons (drop' (dec m) (rest lst)))))
-)
-(drop' 2 myvec)
-(do
-(ns clojure-noob.core)
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
-(def mylist '(1 2 3 4 5 6 7 8 9 10))
-(def myvec [1 2 3 4 5 6 7 8 9 10])
-(def myset #{1 2 3 4 5 6 7 8 9 10})
-(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
-(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
-(def mykeylist '(:a :b :c :d))
-(def mykeyvec [:a :b :c :d])
-(defn square 
-  [x] 
-  (* x x))
-;; ini comment gk bakal di evaluate
-(defn pk
-  [a b c]
-  (fn [x]
-    (+ (* a (square x))
-       (* b x)
-       c)))
-(defn mutlak
-  [x]
-  (if (pos? x) x (- x)))
-(defn explain
-  [something]
-  (case something
-    :a "yeeey aaa"
-    :b "ini b"
-    :nothing
-    :else))
-;; rumus kecap
-(defn kecap
-  [a b c]
-  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
-    [(/ (- (- b) adet) (* 2 a))
-     (/ (+ (- b) adet) (* 2 a))]))
-;; create functions
-(defn take'
-  [m lst]
-  (if (= m 0)
-    nil
-    (cons (first lst) (take' (dec m) (rest lst)))))
-(defn sum'
-  [lst]
-  (if (empty? lst)
-    0
-    (+ (first lst) (sum' (rest lst)))))
+    '()
+    (+ (first lst) (sum (rest lst)))))
 (defn product'
   [lst]
   (if (empty? lst)
@@ -496,5 +33,468 @@
   (if (= m 0)
     lst
     (drop' (dec m) (rest lst))))
+;; haven't created fibonaci
+(defn fibo
+  [x]
+  (case x
+    1 0
+    2 1
+    (+ (fibo (- x 1)) (fibo (- x 2)))))
 )
+(take' 2 '())
+(cons '() '(1 2 3))
 (drop' 2 myvec)
+(drop' 1 myvec)
+(drop' 0 myvec)
+(drop' 2 [])
+(drop 2 [])
+(drop 0 myvec)
+(do
+(ns clojure-noob.core)
+(defn foo
+  "I don't do a whole lot."
+  [x]
+  (println x "Hello, World!"))
+(def mylist '(1 2 3 4 5 6 7 8 9 10))
+(def myvec [1 2 3 4 5 6 7 8 9 10])
+(def myset #{1 2 3 4 5 6 7 8 9 10})
+(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
+(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
+(def mykeylist '(:a :b :c :d))
+(def mykeyvec [:a :b :c :d])
+(defn square 
+  [x] 
+  (* x x))
+;; ini comment gk bakal di evaluate
+(defn pk
+  [a b c]
+  (fn [x]
+    (+ (* a (square x))
+       (* b x)
+       c)))
+(defn mutlak
+  [x]
+  (if (pos? x) x (- x)))
+(defn explain
+  [something]
+  (case something
+    :a "yeeey aaa"
+    :b "ini b"
+    :nothing
+    :else))
+;; rumus kecap
+(defn kecap
+  [a b c]
+  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
+    [(/ (- (- b) adet) (* 2 a))
+     (/ (+ (- b) adet) (* 2 a))]))
+;; create functions
+(defn take'
+  [m lst]
+  (cond
+    (zero? m) '()
+    (empty? lst) '()
+    :else ()))
+(defn sum
+  [lst]
+  (if (empty? lst)
+    '()
+    (+ (first lst) (sum (rest lst)))))
+(defn product'
+  [lst]
+  (if (empty? lst)
+    1
+    (* (first lst) (product' (rest lst)))))
+(defn drop'
+  [m lst]
+  (cond
+    (zero? m) lst
+    (empty? lst) '()
+    :else (drop' (dec m) (rest lst))))
+;; haven't created fibonaci
+(defn fibo
+  [x]
+  (case x
+    1 0
+    2 1
+    (+ (fibo (- x 1)) (fibo (- x 2)))))
+)
+(drop' 0 myvec)
+(drop 0 myvec)
+(drop' 3 (range 10))
+(range 10)
+(do
+(ns clojure-noob.core)
+(defn foo
+  "I don't do a whole lot."
+  [x]
+  (println x "Hello, World!"))
+(def mylist '(1 2 3 4 5 6 7 8 9 10))
+(def myvec [1 2 3 4 5 6 7 8 9 10])
+(def myset #{1 2 3 4 5 6 7 8 9 10})
+(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
+(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
+(def mykeylist '(:a :b :c :d))
+(def mykeyvec [:a :b :c :d])
+(defn square 
+  [x] 
+  (* x x))
+;; ini comment gk bakal di evaluate
+(defn pk
+  [a b c]
+  (fn [x]
+    (+ (* a (square x))
+       (* b x)
+       c)))
+(defn mutlak
+  [x]
+  (if (pos? x) x (- x)))
+(defn explain
+  [something]
+  (case something
+    :a "yeeey aaa"
+    :b "ini b"
+    :nothing
+    :else))
+;; rumus kecap
+(defn kecap
+  [a b c]
+  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
+    [(/ (- (- b) adet) (* 2 a))
+     (/ (+ (- b) adet) (* 2 a))]))
+;; create functions
+(defn take'
+  [m lst]
+  (cond
+    (zero? m) '()
+    (empty? lst) '()
+    :else ()))
+(defn sum
+  [lst]
+  (if (empty? lst)
+    '()
+    (+ (first lst) (sum (rest lst)))))
+(defn product'
+  [lst]
+  (if (empty? lst)
+    1
+    (* (first lst) (product' (rest lst)))))
+(defn drop'
+  [m lst]
+  (cond
+    (zero? m) lst
+    (empty? lst) '()
+    :else (drop' (dec m) (rest lst))))
+;; haven't created fibonaci
+(defn fibo
+  [x]
+  (case x
+    1 0
+    2 1
+    (+ (fibo (- x 1)) (fibo (- x 2)))))
+;; fibo, map, reduce, filter, keep,
+;; zipmap, merge, assoc, dissoc, dll
+)
+(drop' 2 [])
+(drop 2 [])
+(drop' 2 [])
+(sum [])
+(sum [1 2])
+(do
+(ns clojure-noob.core)
+(defn foo
+  "I don't do a whole lot."
+  [x]
+  (println x "Hello, World!"))
+(def mylist '(1 2 3 4 5 6 7 8 9 10))
+(def myvec [1 2 3 4 5 6 7 8 9 10])
+(def myset #{1 2 3 4 5 6 7 8 9 10})
+(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
+(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
+(def mykeylist '(:a :b :c :d))
+(def mykeyvec [:a :b :c :d])
+(defn square 
+  [x] 
+  (* x x))
+;; ini comment gk bakal di evaluate
+(defn pk
+  [a b c]
+  (fn [x]
+    (+ (* a (square x))
+       (* b x)
+       c)))
+(defn mutlak
+  [x]
+  (if (pos? x) x (- x)))
+(defn explain
+  [something]
+  (case something
+    :a "yeeey aaa"
+    :b "ini b"
+    :nothing
+    :else))
+;; rumus kecap
+(defn kecap
+  [a b c]
+  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
+    [(/ (- (- b) adet) (* 2 a))
+     (/ (+ (- b) adet) (* 2 a))]))
+;; create functions
+(defn take'
+  [m lst]
+  (cond
+    (zero? m) '()
+    (empty? lst) '()
+    :else ()))
+(defn sum
+  [lst]
+  (if (empty? lst)
+    0
+    (+ (first lst) (sum (rest lst)))))
+(defn product'
+  [lst]
+  (if (empty? lst)
+    1
+    (* (first lst) (product' (rest lst)))))
+(defn drop'
+  [m lst]
+  (cond
+    (zero? m) lst
+    (empty? lst) '()
+    :else (drop' (dec m) (rest lst))))
+;; haven't created fibonaci
+(defn fibo
+  [x]
+  (case x
+    1 0
+    2 1
+    (+ (fibo (- x 1)) (fibo (- x 2)))))
+;; fibo, map, reduce, filter, keep,
+;; zipmap, merge, assoc, dissoc, dll
+)
+(sum [1 2])
+(product [1 2])
+(do
+(ns clojure-noob.core)
+(defn foo
+  "I don't do a whole lot."
+  [x]
+  (println x "Hello, World!"))
+(def mylist '(1 2 3 4 5 6 7 8 9 10))
+(def myvec [1 2 3 4 5 6 7 8 9 10])
+(def myset #{1 2 3 4 5 6 7 8 9 10})
+(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
+(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
+(def mykeylist '(:a :b :c :d))
+(def mykeyvec [:a :b :c :d])
+(defn square 
+  [x] 
+  (* x x))
+;; ini comment gk bakal di evaluate
+(defn pk
+  [a b c]
+  (fn [x]
+    (+ (* a (square x))
+       (* b x)
+       c)))
+(defn mutlak
+  [x]
+  (if (pos? x) x (- x)))
+(defn explain
+  [something]
+  (case something
+    :a "yeeey aaa"
+    :b "ini b"
+    :nothing
+    :else))
+;; rumus kecap
+(defn kecap
+  [a b c]
+  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
+    [(/ (- (- b) adet) (* 2 a))
+     (/ (+ (- b) adet) (* 2 a))]))
+;; create functions
+(defn take'
+  [m lst]
+  (cond
+    (zero? m) '()
+    (empty? lst) '()
+    :else ()))
+(defn sum
+  [lst]
+  (if (empty? lst)
+    0
+    (+ (first lst) (sum (rest lst)))))
+(defn product
+  [lst]
+  (if (empty? lst)
+    1
+    (* (first lst) (product (rest lst)))))
+(defn drop'
+  [m lst]
+  (cond
+    (zero? m) lst
+    (empty? lst) '()
+    :else (drop' (dec m) (rest lst))))
+;; haven't created fibonaci
+(defn fibo
+  [x]
+  (case x
+    1 0
+    2 1
+    (+ (fibo (- x 1)) (fibo (- x 2)))))
+;; fibo, map, reduce, filter, keep,
+;; zipmap, merge, assoc, dissoc, dll
+)
+(product [1 2])
+(cons 1 '())
+(cons nil '())
+(take 2 '())
+(take 0 myvec)
+(take 2 [])
+(do
+(ns clojure-noob.core)
+(defn foo
+  "I don't do a whole lot."
+  [x]
+  (println x "Hello, World!"))
+(def mylist '(1 2 3 4 5 6 7 8 9 10))
+(def myvec [1 2 3 4 5 6 7 8 9 10])
+(def myset #{1 2 3 4 5 6 7 8 9 10})
+(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
+(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
+(def mykeylist '(:a :b :c :d))
+(def mykeyvec [:a :b :c :d])
+(defn square 
+  [x] 
+  (* x x))
+;; ini comment gk bakal di evaluate
+(defn pk
+  [a b c]
+  (fn [x]
+    (+ (* a (square x))
+       (* b x)
+       c)))
+(defn mutlak
+  [x]
+  (if (pos? x) x (- x)))
+(defn explain
+  [something]
+  (case something
+    :a "yeeey aaa"
+    :b "ini b"
+    :nothing
+    :else))
+;; rumus kecap
+(defn kecap
+  [a b c]
+  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
+    [(/ (- (- b) adet) (* 2 a))
+     (/ (+ (- b) adet) (* 2 a))]))
+;; create functions
+(defn sum
+  [lst]
+  (if (empty? lst)
+    0
+    (+ (first lst) (sum (rest lst)))))
+(defn product
+  [lst]
+  (if (empty? lst)
+    1
+    (* (first lst) (product (rest lst)))))
+(defn drop'
+  [m lst]
+  (cond
+    (zero? m) lst
+    (empty? lst) '()
+    :else (drop' (dec m) (rest lst))))
+(defn fibo
+  [x]
+  (case x
+    1 0
+    2 1
+    (+ (fibo (- x 1)) (fibo (- x 2)))))
+(defn take'
+  [m [x & xs :as lst]]
+  (cond
+    (zero? m) '()
+    (empty? lst) '()
+    (cons x (take' (dec m) xs))))
+;; fibo, map, reduce, filter, keep,
+;; zipmap, merge, assoc, dissoc, dll
+)
+(do
+(ns clojure-noob.core)
+(defn foo
+  "I don't do a whole lot."
+  [x]
+  (println x "Hello, World!"))
+(def mylist '(1 2 3 4 5 6 7 8 9 10))
+(def myvec [1 2 3 4 5 6 7 8 9 10])
+(def myset #{1 2 3 4 5 6 7 8 9 10})
+(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
+(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
+(def mykeylist '(:a :b :c :d))
+(def mykeyvec [:a :b :c :d])
+(defn square 
+  [x] 
+  (* x x))
+;; ini comment gk bakal di evaluate
+(defn pk
+  [a b c]
+  (fn [x]
+    (+ (* a (square x))
+       (* b x)
+       c)))
+(defn mutlak
+  [x]
+  (if (pos? x) x (- x)))
+(defn explain
+  [something]
+  (case something
+    :a "yeeey aaa"
+    :b "ini b"
+    :nothing
+    :else))
+;; rumus kecap
+(defn kecap
+  [a b c]
+  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
+    [(/ (- (- b) adet) (* 2 a))
+     (/ (+ (- b) adet) (* 2 a))]))
+;; create functions
+(defn sum
+  [lst]
+  (if (empty? lst)
+    0
+    (+ (first lst) (sum (rest lst)))))
+(defn product
+  [lst]
+  (if (empty? lst)
+    1
+    (* (first lst) (product (rest lst)))))
+(defn drop'
+  [m lst]
+  (cond
+    (zero? m) lst
+    (empty? lst) '()
+    :else (drop' (dec m) (rest lst))))
+(defn fibo
+  [x]
+  (case x
+    1 0
+    2 1
+    (+ (fibo (- x 1)) (fibo (- x 2)))))
+(defn take'
+  [m [x & xs :as lst]]
+  (cond
+    (zero? m) '()
+    (empty? lst) '()
+    :else (cons x (take' (dec m) xs))))
+;; fibo, map, reduce, filter, keep,
+;; zipmap, merge, assoc, dissoc, dll
+)
+(take' 2 [])
+(take' 2 [1 2])
+(take' 2 [1 2 3 4])
+(take' 0 [1 2])
