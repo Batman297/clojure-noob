@@ -87,7 +87,7 @@
     2 1
     (+ (fibo (- x 1)) (fibo (- x 2)))))
 
-(defn even-fibo-lst
+(defn fibo-lst
   [m n i]
   (cond
     (zero? i) '()
@@ -101,12 +101,6 @@
     (empty? lst) '()
     :else (cons x (take' (dec m) xs))))
 
-;; next exercise
-;; fibo, map, reduce, filter, keep,
-;; zipmap, merge, assoc, dissoc, dll
-
-
-
 ;; projecteuler problem 1
 (defn prob1
   [[x & xs :as lst]]
@@ -115,4 +109,19 @@
     (= 1 (count lst)) (list x)
     (or (zero? (rem x 3)) (zero? (rem x 5))) (cons x (prob1 xs))
     :else (prob1 xs)))
+
+;; next exercise
+;; fibo, map, reduce, filter, keep,
+;; zipmap, merge, assoc, dissoc, dll
+
+(defn fibonacci
+  ;; fast fibonacci
+  [x]
+  (loop [p x
+         q 0
+         r 1
+         result []]
+    (if (> p 0)
+      (recur (dec p) r (+ q r) (conj result q))
+      (last result))))
 

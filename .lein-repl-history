@@ -1,24 +1,3 @@
-(fibo-lst 0 1 50)
-(fibo-lst 1 2 50)
-(fibo-lst 1 2 32)
-(do
-(ns clojure-noob.core)
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
-(def mylist '(1 2 3 4 5 6 7 8 9 10))
-(def myvec [1 2 3 4 5 6 7 8 9 10])
-(def myset #{1 2 3 4 5 6 7 8 9 10})
-(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
-(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
-(def mykeylist '(:a :b :c :d))
-(def mykeyvec [:a :b :c :d])
-(defn square 
-  [x] 
-  (* x x))
-;; ini comment gk bakal di evaluate
-(defn pk
   [a b c]
   (fn [x]
     (+ (* a (square x))
@@ -72,281 +51,7 @@
   [m n i]
   (cond
     (zero? i) '()
-    (zero? (rem x 2) (cons (fibo-lst n (+ m n ) (dec i))))
-    :else (cons m (fibo-lst n (+ m n) (dec i)))))
-(defn take'
-  [m [x & xs :as lst]]
-  (cond
-    (zero? m) '()
-    (empty? lst) '()
-    :else (cons x (take' (dec m) xs))))
-;; next exercise
-;; fibo, map, reduce, filter, keep,
-;; zipmap, merge, assoc, dissoc, dll
-;; projecteuler problem 1
-(defn prob1
-  [[x & xs :as lst]]
-  (cond 
-    (empty? lst) '()
-    (= 1 (count lst)) (list x)
-    (or (zero? (rem x 3)) (zero? (rem x 5))) (cons x (prob1 xs))
-    :else (prob1 xs)))
-)
-(do
-(ns clojure-noob.core)
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
-(def mylist '(1 2 3 4 5 6 7 8 9 10))
-(def myvec [1 2 3 4 5 6 7 8 9 10])
-(def myset #{1 2 3 4 5 6 7 8 9 10})
-(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
-(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
-(def mykeylist '(:a :b :c :d))
-(def mykeyvec [:a :b :c :d])
-(defn square 
-  [x] 
-  (* x x))
-;; ini comment gk bakal di evaluate
-(defn pk
-  [a b c]
-  (fn [x]
-    (+ (* a (square x))
-       (* b x)
-       c)))
-(defn mutlak
-  [x]
-  (if (pos? x) x (- x)))
-(defn explain
-  [something]
-  (case something
-    :a "yeeey aaa"
-    :b "ini b"
-    :nothing
-    :else))
-;; rumus kecap
-(defn kecap
-  [a b c]
-  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
-    [(/ (- (- b) adet) (* 2 a))
-     (/ (+ (- b) adet) (* 2 a))]))
-(defn ngasal
-  [x]
-  (let [a (* x x)]
-    (let [b (* a 2)]
-      (* a b x))))
-;; create functions
-(defn sum
-  [lst]
-  (if (empty? lst)
-    0
-    (+ (first lst) (sum (rest lst)))))
-(defn product
-  [lst]
-  (if (empty? lst)
-    1
-    (* (first lst) (product (rest lst)))))
-(defn drop'
-  [m lst]
-  (cond
-    (zero? m) lst
-    (empty? lst) '()
-    :else (drop' (dec m) (rest lst))))
-(defn fibo
-  [x]
-  (case x
-    1 0
-    2 1
-    (+ (fibo (- x 1)) (fibo (- x 2)))))
-(defn fibo-lst
-  [m n i]
-  (cond
-    (zero? i) '()
-    (zero? (rem x 2)) (cons (fibo-lst n (+ m n ) (dec i)))
-    :else (cons m (fibo-lst n (+ m n) (dec i)))))
-(defn take'
-  [m [x & xs :as lst]]
-  (cond
-    (zero? m) '()
-    (empty? lst) '()
-    :else (cons x (take' (dec m) xs))))
-;; next exercise
-;; fibo, map, reduce, filter, keep,
-;; zipmap, merge, assoc, dissoc, dll
-;; projecteuler problem 1
-(defn prob1
-  [[x & xs :as lst]]
-  (cond 
-    (empty? lst) '()
-    (= 1 (count lst)) (list x)
-    (or (zero? (rem x 3)) (zero? (rem x 5))) (cons x (prob1 xs))
-    :else (prob1 xs)))
-)
-(do
-(ns clojure-noob.core)
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
-(def mylist '(1 2 3 4 5 6 7 8 9 10))
-(def myvec [1 2 3 4 5 6 7 8 9 10])
-(def myset #{1 2 3 4 5 6 7 8 9 10})
-(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
-(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
-(def mykeylist '(:a :b :c :d))
-(def mykeyvec [:a :b :c :d])
-(defn square 
-  [x] 
-  (* x x))
-;; ini comment gk bakal di evaluate
-(defn pk
-  [a b c]
-  (fn [x]
-    (+ (* a (square x))
-       (* b x)
-       c)))
-(defn mutlak
-  [x]
-  (if (pos? x) x (- x)))
-(defn explain
-  [something]
-  (case something
-    :a "yeeey aaa"
-    :b "ini b"
-    :nothing
-    :else))
-;; rumus kecap
-(defn kecap
-  [a b c]
-  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
-    [(/ (- (- b) adet) (* 2 a))
-     (/ (+ (- b) adet) (* 2 a))]))
-(defn ngasal
-  [x]
-  (let [a (* x x)]
-    (let [b (* a 2)]
-      (* a b x))))
-;; create functions
-(defn sum
-  [lst]
-  (if (empty? lst)
-    0
-    (+ (first lst) (sum (rest lst)))))
-(defn product
-  [lst]
-  (if (empty? lst)
-    1
-    (* (first lst) (product (rest lst)))))
-(defn drop'
-  [m lst]
-  (cond
-    (zero? m) lst
-    (empty? lst) '()
-    :else (drop' (dec m) (rest lst))))
-(defn fibo
-  [x]
-  (case x
-    1 0
-    2 1
-    (+ (fibo (- x 1)) (fibo (- x 2)))))
-(defn fibo-lst
-  [m n i]
-  (cond
-    (zero? i) '()
-    (zero? (rem x 2)) (fibo-lst n (+ m n ) (dec i))
-    :else (cons m (fibo-lst n (+ m n) (dec i)))))
-(defn take'
-  [m [x & xs :as lst]]
-  (cond
-    (zero? m) '()
-    (empty? lst) '()
-    :else (cons x (take' (dec m) xs))))
-;; next exercise
-;; fibo, map, reduce, filter, keep,
-;; zipmap, merge, assoc, dissoc, dll
-;; projecteuler problem 1
-(defn prob1
-  [[x & xs :as lst]]
-  (cond 
-    (empty? lst) '()
-    (= 1 (count lst)) (list x)
-    (or (zero? (rem x 3)) (zero? (rem x 5))) (cons x (prob1 xs))
-    :else (prob1 xs)))
-)
-(zero? (rem 3 3))
-(do
-(ns clojure-noob.core)
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
-(def mylist '(1 2 3 4 5 6 7 8 9 10))
-(def myvec [1 2 3 4 5 6 7 8 9 10])
-(def myset #{1 2 3 4 5 6 7 8 9 10})
-(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
-(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
-(def mykeylist '(:a :b :c :d))
-(def mykeyvec [:a :b :c :d])
-(defn square 
-  [x] 
-  (* x x))
-;; ini comment gk bakal di evaluate
-(defn pk
-  [a b c]
-  (fn [x]
-    (+ (* a (square x))
-       (* b x)
-       c)))
-(defn mutlak
-  [x]
-  (if (pos? x) x (- x)))
-(defn explain
-  [something]
-  (case something
-    :a "yeeey aaa"
-    :b "ini b"
-    :nothing
-    :else))
-;; rumus kecap
-(defn kecap
-  [a b c]
-  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
-    [(/ (- (- b) adet) (* 2 a))
-     (/ (+ (- b) adet) (* 2 a))]))
-(defn ngasal
-  [x]
-  (let [a (* x x)]
-    (let [b (* a 2)]
-      (* a b x))))
-;; create functions
-(defn sum
-  [lst]
-  (if (empty? lst)
-    0
-    (+ (first lst) (sum (rest lst)))))
-(defn product
-  [lst]
-  (if (empty? lst)
-    1
-    (* (first lst) (product (rest lst)))))
-(defn drop'
-  [m lst]
-  (cond
-    (zero? m) lst
-    (empty? lst) '()
-    :else (drop' (dec m) (rest lst))))
-(defn fibo
-  [x]
-  (case x
-    1 0
-    2 1
-    (+ (fibo (- x 1)) (fibo (- x 2)))))
-(defn fibo-lst
-  [m n i]
-  (cond
-    (zero? i) '()
-    (zero? (rem x 2)) (cons m (fibo-lst n (+ m n) (dec i)))
+    (zero? (rem m 2)) (cons m (fibo-lst n (+ m n) (dec i)))
     :else (fibo-lst n (+ m n) (dec i))))
 (defn take'
   [m [x & xs :as lst]]
@@ -354,9 +59,6 @@
     (zero? m) '()
     (empty? lst) '()
     :else (cons x (take' (dec m) xs))))
-;; next exercise
-;; fibo, map, reduce, filter, keep,
-;; zipmap, merge, assoc, dissoc, dll
 ;; projecteuler problem 1
 (defn prob1
   [[x & xs :as lst]]
@@ -365,6 +67,333 @@
     (= 1 (count lst)) (list x)
     (or (zero? (rem x 3)) (zero? (rem x 5))) (cons x (prob1 xs))
     :else (prob1 xs)))
+;; next exercise
+;; fibo, map, reduce, filter, keep,
+;; zipmap, merge, assoc, dissoc, dll
+(defn fibonacci
+  [x]
+  (loop [p x
+         q 0
+         r 1
+         result []]
+    (if (> p 0)
+      (recur (dec p) r (+ q r) (cons p result))
+      result)))
+)
+(fibonacci 55)
+(do
+(ns clojure-noob.core)
+(defn foo
+  "I don't do a whole lot."
+  [x]
+  (println x "Hello, World!"))
+(def mylist '(1 2 3 4 5 6 7 8 9 10))
+(def myvec [1 2 3 4 5 6 7 8 9 10])
+(def myset #{1 2 3 4 5 6 7 8 9 10})
+(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
+(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
+(def mykeylist '(:a :b :c :d))
+(def mykeyvec [:a :b :c :d])
+(defn square 
+  [x] 
+  (* x x))
+;; ini comment gk bakal di evaluate
+(defn pk
+  [a b c]
+  (fn [x]
+    (+ (* a (square x))
+       (* b x)
+       c)))
+(defn mutlak
+  [x]
+  (if (pos? x) x (- x)))
+(defn explain
+  [something]
+  (case something
+    :a "yeeey aaa"
+    :b "ini b"
+    :nothing
+    :else))
+;; rumus kecap
+(defn kecap
+  [a b c]
+  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
+    [(/ (- (- b) adet) (* 2 a))
+     (/ (+ (- b) adet) (* 2 a))]))
+(defn ngasal
+  [x]
+  (let [a (* x x)]
+    (let [b (* a 2)]
+      (* a b x))))
+;; create functions
+(defn sum
+  [lst]
+  (if (empty? lst)
+    0
+    (+ (first lst) (sum (rest lst)))))
+(defn product
+  [lst]
+  (if (empty? lst)
+    1
+    (* (first lst) (product (rest lst)))))
+(defn drop'
+  [m lst]
+  (cond
+    (zero? m) lst
+    (empty? lst) '()
+    :else (drop' (dec m) (rest lst))))
+(defn fibo
+  [x]
+  (case x
+    1 0
+    2 1
+    (+ (fibo (- x 1)) (fibo (- x 2)))))
+(defn fibo-lst
+  [m n i]
+  (cond
+    (zero? i) '()
+    (zero? (rem m 2)) (cons m (fibo-lst n (+ m n) (dec i)))
+    :else (fibo-lst n (+ m n) (dec i))))
+(defn take'
+  [m [x & xs :as lst]]
+  (cond
+    (zero? m) '()
+    (empty? lst) '()
+    :else (cons x (take' (dec m) xs))))
+;; projecteuler problem 1
+(defn prob1
+  [[x & xs :as lst]]
+  (cond 
+    (empty? lst) '()
+    (= 1 (count lst)) (list x)
+    (or (zero? (rem x 3)) (zero? (rem x 5))) (cons x (prob1 xs))
+    :else (prob1 xs)))
+;; next exercise
+;; fibo, map, reduce, filter, keep,
+;; zipmap, merge, assoc, dissoc, dll
+(defn fibonacci
+  [x]
+  (loop [p x
+         q 0
+         r 1
+         result []]
+    (if (> p 0)
+      (recur (dec p) r (+ q r) (cons q result))
+      result)))
+)
+(fibonacci 55)
+(do
+(ns clojure-noob.core)
+(defn foo
+  "I don't do a whole lot."
+  [x]
+  (println x "Hello, World!"))
+(def mylist '(1 2 3 4 5 6 7 8 9 10))
+(def myvec [1 2 3 4 5 6 7 8 9 10])
+(def myset #{1 2 3 4 5 6 7 8 9 10})
+(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
+(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
+(def mykeylist '(:a :b :c :d))
+(def mykeyvec [:a :b :c :d])
+(defn square 
+  [x] 
+  (* x x))
+;; ini comment gk bakal di evaluate
+(defn pk
+  [a b c]
+  (fn [x]
+    (+ (* a (square x))
+       (* b x)
+       c)))
+(defn mutlak
+  [x]
+  (if (pos? x) x (- x)))
+(defn explain
+  [something]
+  (case something
+    :a "yeeey aaa"
+    :b "ini b"
+    :nothing
+    :else))
+;; rumus kecap
+(defn kecap
+  [a b c]
+  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
+    [(/ (- (- b) adet) (* 2 a))
+     (/ (+ (- b) adet) (* 2 a))]))
+(defn ngasal
+  [x]
+  (let [a (* x x)]
+    (let [b (* a 2)]
+      (* a b x))))
+;; create functions
+(defn sum
+  [lst]
+  (if (empty? lst)
+    0
+    (+ (first lst) (sum (rest lst)))))
+(defn product
+  [lst]
+  (if (empty? lst)
+    1
+    (* (first lst) (product (rest lst)))))
+(defn drop'
+  [m lst]
+  (cond
+    (zero? m) lst
+    (empty? lst) '()
+    :else (drop' (dec m) (rest lst))))
+(defn fibo
+  [x]
+  (case x
+    1 0
+    2 1
+    (+ (fibo (- x 1)) (fibo (- x 2)))))
+(defn fibo-lst
+  [m n i]
+  (cond
+    (zero? i) '()
+    (zero? (rem m 2)) (cons m (fibo-lst n (+ m n) (dec i)))
+    :else (fibo-lst n (+ m n) (dec i))))
+(defn take'
+  [m [x & xs :as lst]]
+  (cond
+    (zero? m) '()
+    (empty? lst) '()
+    :else (cons x (take' (dec m) xs))))
+;; projecteuler problem 1
+(defn prob1
+  [[x & xs :as lst]]
+  (cond 
+    (empty? lst) '()
+    (= 1 (count lst)) (list x)
+    (or (zero? (rem x 3)) (zero? (rem x 5))) (cons x (prob1 xs))
+    :else (prob1 xs)))
+;; next exercise
+;; fibo, map, reduce, filter, keep,
+;; zipmap, merge, assoc, dissoc, dll
+(defn fibonacci
+  [x]
+  (loop [p x
+         q 0
+         r 1
+         result []]
+    (if (> p 0)
+      (recur (dec p) r (+ q r) (conj result q))
+      result)))
+)
+(fibonacci 55)
+(fibonacci 65)
+(fibonacci 75)
+(fibonacci 85)
+(fibonacci 95)
+(fibonacci 85)
+(fibonacci 88)
+(fibonacci 90)
+(fibonacci 91)
+(fibonacci 92)
+(fibo 92)
+(fibo 9)
+(do
+(ns clojure-noob.core)
+(defn foo
+  "I don't do a whole lot."
+  [x]
+  (println x "Hello, World!"))
+(def mylist '(1 2 3 4 5 6 7 8 9 10))
+(def myvec [1 2 3 4 5 6 7 8 9 10])
+(def myset #{1 2 3 4 5 6 7 8 9 10})
+(def mymap {:a 1 :b 2 :c 3 :d 4 :e 5})
+(def person {:nama "denda" :umur "muda" :alamat "jauh banget"})
+(def mykeylist '(:a :b :c :d))
+(def mykeyvec [:a :b :c :d])
+(defn square 
+  [x] 
+  (* x x))
+;; ini comment gk bakal di evaluate
+(defn pk
+  [a b c]
+  (fn [x]
+    (+ (* a (square x))
+       (* b x)
+       c)))
+(defn mutlak
+  [x]
+  (if (pos? x) x (- x)))
+(defn explain
+  [something]
+  (case something
+    :a "yeeey aaa"
+    :b "ini b"
+    :nothing
+    :else))
+;; rumus kecap
+(defn kecap
+  [a b c]
+  (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
+    [(/ (- (- b) adet) (* 2 a))
+     (/ (+ (- b) adet) (* 2 a))]))
+(defn ngasal
+  [x]
+  (let [a (* x x)]
+    (let [b (* a 2)]
+      (* a b x))))
+;; create functions
+(defn sum
+  [lst]
+  (if (empty? lst)
+    0
+    (+ (first lst) (sum (rest lst)))))
+(defn product
+  [lst]
+  (if (empty? lst)
+    1
+    (* (first lst) (product (rest lst)))))
+(defn drop'
+  [m lst]
+  (cond
+    (zero? m) lst
+    (empty? lst) '()
+    :else (drop' (dec m) (rest lst))))
+(defn fibo
+  [x]
+  (case x
+    1 0
+    2 1
+    (+ (fibo (- x 1)) (fibo (- x 2)))))
+(defn fibo-lst
+  [m n i]
+  (cond
+    (zero? i) '()
+    (zero? (rem m 2)) (cons m (fibo-lst n (+ m n) (dec i)))
+    :else (fibo-lst n (+ m n) (dec i))))
+(defn take'
+  [m [x & xs :as lst]]
+  (cond
+    (zero? m) '()
+    (empty? lst) '()
+    :else (cons x (take' (dec m) xs))))
+;; projecteuler problem 1
+(defn prob1
+  [[x & xs :as lst]]
+  (cond 
+    (empty? lst) '()
+    (= 1 (count lst)) (list x)
+    (or (zero? (rem x 3)) (zero? (rem x 5))) (cons x (prob1 xs))
+    :else (prob1 xs)))
+;; next exercise
+;; fibo, map, reduce, filter, keep,
+;; zipmap, merge, assoc, dissoc, dll
+(defn fibonacci
+  ;; fast fibonacci
+  [x]
+  (loop [p x
+         q 0
+         r 1
+         result []]
+    (if (> p 0)
+      (recur (dec p) r (+ q r) (conj result q))
+      (last result))))
 )
 (do
 (ns clojure-noob.core)
@@ -445,9 +474,6 @@
     (zero? m) '()
     (empty? lst) '()
     :else (cons x (take' (dec m) xs))))
-;; next exercise
-;; fibo, map, reduce, filter, keep,
-;; zipmap, merge, assoc, dissoc, dll
 ;; projecteuler problem 1
 (defn prob1
   [[x & xs :as lst]]
@@ -456,45 +482,19 @@
     (= 1 (count lst)) (list x)
     (or (zero? (rem x 3)) (zero? (rem x 5))) (cons x (prob1 xs))
     :else (prob1 xs)))
+;; next exercise
+;; fibo, map, reduce, filter, keep,
+;; zipmap, merge, assoc, dissoc, dll
+(defn fibonacci
+  ;; fast fibonacci
+  [x]
+  (loop [p x
+         q 0
+         r 1
+         result []]
+    (if (> p 0)
+      (recur (dec p) r (+ q r) (conj result q))
+      (last result))))
 )
-(fibo-lst 1 2 32)
-(sum (fibo-lst 1 2 32))
-(-> 5 (+ 1) (/ 2) (- 3))
-(->> 5 (+ 1) (/ 2) (- 3))
-(macroexpand-all (->> 5 (+ 1) (/ 2) (- 3)))
-(macroexpand-all '(->> 5 (+ 1) (/ 2) (- 3)))
-(macroexpand-all '(->> c (+ 3) (/ 2) (- 1)))
-(->> 5 (+ 1) (/ 2) (- 3))
-(/ 2 6)
-(- (/ 2 6) 3)
-(- 3 (/ 2 6))
-(inc 2)
-(+ myvec)
-(map-sum myvec)
-(map-sum + myvec)
-(get :a mymap)
-mymap
-(get 1 mymap)
-(get nil mymap)
-(true? nil)
-(true? true)
-(false? true)
-(def some1 {:a nil :b 2})
-some1
-(def some2 {:a nil :b 2})
-(def some3 {:a nil :b 2})
-some1
-some2
-some3
-(get some1 :a)
-(true nil)
-(true? nil)
-(false? nil)
-(= some1 nil)
-(= nil nil)
-(nil? some1)
-(nil? nil)
-(nil? :else)
-(some1 :a)
-(some1 :b)
-(some1 :c)
+(fibonacci 92)
+(fibonacci 90)
