@@ -53,6 +53,12 @@
     [(/ (- (- b) adet) (* 2 a))
      (/ (+ (- b) adet) (* 2 a))]))
 
+(defn ngasal
+  [x]
+  (let [a (* x x)]
+    (let [b (* a 2)]
+      (* a b x))))
+
 
 ;; create functions
 (defn sum
@@ -81,6 +87,13 @@
     2 1
     (+ (fibo (- x 1)) (fibo (- x 2)))))
 
+(defn even-fibo-lst
+  [m n i]
+  (cond
+    (zero? i) '()
+    (zero? (rem m 2)) (cons m (fibo-lst n (+ m n) (dec i)))
+    :else (fibo-lst n (+ m n) (dec i))))
+
 (defn take'
   [m [x & xs :as lst]]
   (cond
@@ -88,5 +101,18 @@
     (empty? lst) '()
     :else (cons x (take' (dec m) xs))))
 
+;; next exercise
 ;; fibo, map, reduce, filter, keep,
 ;; zipmap, merge, assoc, dissoc, dll
+
+
+
+;; projecteuler problem 1
+(defn prob1
+  [[x & xs :as lst]]
+  (cond 
+    (empty? lst) '()
+    (= 1 (count lst)) (list x)
+    (or (zero? (rem x 3)) (zero? (rem x 5))) (cons x (prob1 xs))
+    :else (prob1 xs)))
+
