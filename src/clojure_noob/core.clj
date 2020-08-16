@@ -125,3 +125,9 @@
       (recur (dec p) r (+ q r) (conj result q))
       (last result))))
 
+(defn prime?
+  [x]
+  (cond
+    (< x 1) false
+    1 false
+    ))
