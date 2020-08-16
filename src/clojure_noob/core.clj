@@ -131,5 +131,3 @@
     (< x 1) false
     1 false
     ))
-
-(def ngasal-bro "idihh")
