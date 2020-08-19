@@ -25,7 +25,6 @@
 
 ;; ini comment gk bakal di evaluate
 
-
 (defn pk
   [a b c]
   (fn [x]
@@ -125,9 +124,57 @@
       (recur (dec p) r (+ q r) (conj result q))
       (last result))))
 
+(defn iter-prime
+  [x i]
+  (cond
+    (= x i) true
+    (zero? (rem x i)) false
+    :else (iter-prime x (inc i))))
+
 (defn prime?
   [x]
+  (cond 
+    (<= x 1) false
+    (= x 2) true
+    :else (iter-prime x 2)))
+
+(defn prime?2
+  [x]
+  (let [iter (fn iter 
+               [i]
+               (cond
+                 (= x i) true
+                 (zero? (rem x i)) false
+                 :else (iter (inc i))))]
   (cond
-    (< x 1) false
-    1 false
-    ))
+    (<= x 1) false
+    (= x 2) true
+    :else (iter 2))))
+
+(defn prime?3
+  [x]
+  (let [iter (fn iter 
+               [i]
+               (cond
+                 (= x i) true
+                 (zero? (rem x i)) false
+                 :else (iter (+ i 2))))]
+    (cond
+      (<= x 1) false
+      (= x 2) true
+      (even? x) false
+      :else (iter 3))))
+
+(defn fak
+  [x]
+  (if (= x 1)
+    1
+    (*' x (fak (dec x)))))
+
+(def ini-lagi-ngoding "yeeeeeeee")
+
+(defn folding
+  [f [x & xs]]
+  (if x  
+    (f x (folding f xs))
+    (f)))
