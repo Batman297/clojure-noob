@@ -178,3 +178,31 @@
   (if x  
     (f x (folding f xs))
     (f)))
+
+(defn quot'
+  [x y]
+  (cond
+    (< x y) 0
+    :else (+ 1 (quot' (- x y) y))))
+
+(defn rem'
+  [x y]
+  (cond
+    (< x y) x
+    :else (rem' (- x y) y)))
+
+(defn inc''
+  [x]
+  (+ x 1))
+
+(defn dec''
+  [x]
+  (- x 1))
+
+(defn my-max [ff & more]
+  (letfn [(calc-max [m x] 
+            (cond (empty? x) m
+                  (> (first x) m) (calc-max (first x) 
+                                            (rest x))
+                  :else (calc-max m (rest x))))]
+    (calc-max ff more)))
