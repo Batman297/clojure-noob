@@ -1,4 +1,6 @@
-(ns clojure-noob.core)
+(ns clojure-noob.core
+  (:use [clojure.string :only (join)])
+  (:use [clojure.set :only (superset?)]))
 
 ;; Clojure basic part one
 
@@ -130,3 +132,36 @@
 ;; sum product quot rem mod inc dec
 ;; take drop zipmap map take-while drop-while
 
+(defn sum
+  ;; nambahin semua 
+  [[x & xs]]
+  (if x
+    (+ x (sum xs))
+    0))
+
+(defn product
+  ;; ngaliin semua
+  [[x & xs]]
+  (if x
+    (* x (product xs))
+    1))
+
+(defn my-quot
+  ;; hasil bagi x oleh y
+  [x y]
+  (if (< x y)
+    0
+    (+ 1 (my-quot (- x y) y))))
+
+(defn my-rem
+  ;; sisa bagi x oleh y
+  [x y]
+  (let [mutlak (fn mutlak
+                 [x]
+                 (if (neg? x)
+                   (- x)
+                   x))]
+    (cond
+      (< (mutlak x) y) x
+      (neg? x) (my-rem (+ x y) y)
+      :else (my-rem (- x y) y))))
