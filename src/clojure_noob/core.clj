@@ -165,6 +165,3 @@
       (< (mutlak x) y) x
       (neg? x) (my-rem (+ x y) y)
       :else (my-rem (- x y) y))))
-
-
-;; test
