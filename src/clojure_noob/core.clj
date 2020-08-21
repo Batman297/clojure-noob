@@ -146,22 +146,33 @@
     (* x (product xs))
     1))
 
-(defn my-quot
-  ;; hasil bagi x oleh y
-  [x y]
-  (if (< x y)
-    0
-    (+ 1 (my-quot (- x y) y))))
+(defn mutlak
+  ;; nilai mutlak
+  [x]
+  (if (neg? x)
+    (- x)
+    x))
 
 (defn my-rem
   ;; sisa bagi x oleh y
   [x y]
-  (let [mutlak (fn mutlak
-                 [x]
-                 (if (neg? x)
-                   (- x)
-                   x))]
+  (let [y (mutlak y)]
     (cond
       (< (mutlak x) y) x
       (neg? x) (my-rem (+ x y) y)
       :else (my-rem (- x y) y))))
+
+;; tryone
+;; my-rem 9 -2
+;; my-rem (- 9 (mutlak -2)) -2 => 9 2
+;; my-rem (- 7 (mutlak -2)) -2 => 7 2
+;; my-rem (- 5 (mutlak -2)) -2 => 5 2
+;; my-rem (- 3 (mutlak -2)) -2 => 3 2
+;; my-rem (- 1 (mutlak -2)) -2 => 1
+
+;; my-rem -9 -2
+;; my-rem (+ -9 (mutlak -2)) -2 => -9 2
+;; my-rem (+ -7 (mutlak -2)) -2 => -7 2
+;; my-rem (+ -5 (mutlak -2)) -2 => -5 2
+;; my-rem (+ -3 (mutlak -2)) -2 => -3 2
+;; my-rem (+ -1 (mutlak -2)) -2 => -1
