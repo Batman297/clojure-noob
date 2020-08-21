@@ -1,9 +1,8 @@
-(ns clojure-noob.core)
+(ns clojure-noob.core
+  (:use [clojure.string :only (join)])
+  (:use [clojure.set :only (superset?)]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+;; Clojure basic part one
 
 (def mylist '(1 2 3 4 5 6 7 8 9 10))
 
@@ -19,12 +18,11 @@
 
 (def mykeyvec [:a :b :c :d])
 
+;; Clojure basic part two
+
 (defn square 
   [x] 
   (* x x))
-
-;; ini comment gk bakal di evaluate
-
 
 (defn pk
   [a b c]
@@ -45,9 +43,9 @@
     :nothing
     :else))
 
-;; rumus kecap
 
 (defn kecap
+  ;; rumus kecap
   [a b c]
   (let [adet (Math/sqrt (- (* b b) (* 4 a c)))]
     [(/ (- (- b) adet) (* 2 a))
@@ -59,47 +57,12 @@
     (let [b (* a 2)]
       (* a b x))))
 
-
-;; create functions
-(defn sum
-  [lst]
-  (if (empty? lst)
-    0
-    (+ (first lst) (sum (rest lst)))))
-
-(defn product
-  [lst]
-  (if (empty? lst)
-    1
-    (* (first lst) (product (rest lst)))))
-
-(defn drop'
-  [m lst]
-  (cond
-    (zero? m) lst
-    (empty? lst) '()
-    :else (drop' (dec m) (rest lst))))
-
 (defn fibo
   [x]
   (case x
     1 0
     2 1
     (+ (fibo (- x 1)) (fibo (- x 2)))))
-
-(defn fibo-lst
-  [m n i]
-  (cond
-    (zero? i) '()
-    (zero? (rem m 2)) (cons m (fibo-lst n (+ m n) (dec i)))
-    :else (fibo-lst n (+ m n) (dec i))))
-
-(defn take'
-  [m [x & xs :as lst]]
-  (cond
-    (zero? m) '()
-    (empty? lst) '()
-    :else (cons x (take' (dec m) xs))))
 
 ;; projecteuler problem 1
 (defn prob1
@@ -110,18 +73,98 @@
     (or (zero? (rem x 3)) (zero? (rem x 5))) (cons x (prob1 xs))
     :else (prob1 xs)))
 
-;; next exercise
-;; fibo, map, reduce, filter, keep,
-;; zipmap, merge, assoc, dissoc, dll
+;; Clojure basic part three
 
-(defn fibonacci
-  ;; fast fibonacci
+(defn iter-prime
+  [x i]
+  (cond
+    (= x i) true
+    (zero? (rem x i)) false
+    :else (iter-prime x (inc i))))
+
+(defn prime?
   [x]
-  (loop [p x
-         q 0
-         r 1
-         result []]
-    (if (> p 0)
-      (recur (dec p) r (+ q r) (conj result q))
-      (last result))))
+  (cond 
+    (<= x 1) false
+    (= x 2) true
+    :else (iter-prime x 2)))
 
+(defn prime?2
+  [x]
+  (let [iter (fn iter 
+               [i]
+               (cond
+                 (= x i) true
+                 (zero? (rem x i)) false
+                 :else (iter (inc i))))]
+  (cond
+    (<= x 1) false
+    (= x 2) true
+    :else (iter 2))))
+
+(defn prime?3
+  [x]
+  (let [iter (fn iter 
+               [i]
+               (cond
+                 (= x i) true
+                 (zero? (rem x i)) false
+                 :else (iter (+ i 2))))]
+    (cond
+      (<= x 1) false
+      (= x 2) true
+      (even? x) false
+      :else (iter 3))))
+
+(defn fak
+  [x]
+  (if (= x 1)
+    1
+    (*' x (fak (dec x)))))
+
+(defn folding
+  [f [x & xs]]
+  (if x  
+    (f x (folding f xs))
+    (f)))
+
+;; re-implement several clojure's functions
+;; sum product quot rem mod inc dec
+;; take drop zipmap map take-while drop-while
+
+(defn sum
+  ;; nambahin semua 
+  [[x & xs]]
+  (if x
+    (+ x (sum xs))
+    0))
+
+(defn product
+  ;; ngaliin semua
+  [[x & xs]]
+  (if x
+    (* x (product xs))
+    1))
+
+(defn my-quot
+  ;; hasil bagi x oleh y
+  [x y]
+  (if (< x y)
+    0
+    (+ 1 (my-quot (- x y) y))))
+
+(defn my-rem
+  ;; sisa bagi x oleh y
+  [x y]
+  (let [mutlak (fn mutlak
+                 [x]
+                 (if (neg? x)
+                   (- x)
+                   x))]
+    (cond
+      (< (mutlak x) y) x
+      (neg? x) (my-rem (+ x y) y)
+      :else (my-rem (- x y) y))))
+
+
+;; test
