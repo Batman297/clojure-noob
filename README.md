@@ -3,7 +3,7 @@
 Hello, world!
 I'm learning clojure, yaayy.
 
-<div style="text-align:center">![GitHub Logo](/img/Clojure.png)</div>
+<div style="text-align:center"><img src="https://github.com/Batman297/clojure-noob/blob/master/img/Clojure.png?raw=true" /></div>
 
 
 ## License
