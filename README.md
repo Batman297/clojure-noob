@@ -3,65 +3,7 @@
 Hello, world!
 I'm learning clojure, yaayy.
 
-## Data types
-### Primitives
-- Numbers -> 1 2 3 
-- Boolean -> true false
-- Char -> \1 \d \*
-- Keyword -> :key
-
-### Complex
-- Map -> {:key "value" :key1 "value"}
-- Vector -> [1 2 3 2 "hey"]
-- Set -> #{1 2 3 4 "hey"}
-- List -> '(1 2 3 4 \s)
-
-### Functions
-- def
-- rem
-- quot
-- str
-- seq
-- not
-- =
-- >
-- <
-- keyword
-- symbol
-- count
-- cons
-- conj
-- peek
-- pop
-- vec
-- vector
-- first
-- last
-- nth
-- subvec
-- list
-- set
-- hash-map
-- get
-- contains?
-- pos?
-- neg?
-- zero?
-- assoc
-- dissoc
-- sort
-- keys
-- vals
-- take
-- drop
-- first
-- second
-- concat
-- range
-- repeat
-- map
-- filter
-- comment
+![GitHub Logo] (/img/clojure.png)
 
 ## License
 
