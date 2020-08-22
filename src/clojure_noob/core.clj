@@ -176,3 +176,21 @@
 ;; my-rem (+ -5 (mutlak -2)) -2 => -5 2
 ;; my-rem (+ -3 (mutlak -2)) -2 => -3 2
 ;; my-rem (+ -1 (mutlak -2)) -2 => -1
+
+(defn my-quot
+  ;; hasil bagi x oleh y
+  [x y]
+  (cond
+    (< (mutlak x) (mutlak y)) 0
+    (or (and (pos? x)
+             (pos? y)) 
+        (and (neg? x)
+             (neg? y))) (+ (my-quot (- x y) y) 1)
+    :else (- (my-quot (+ x y) y) 1)))
+
+;; tryone
+;; 9 -2 => -4
+;; 7 -2 => -3
+;; 5 -2 => -2
+;; 3 -2 => -1
+;; 1 -2 => 0
