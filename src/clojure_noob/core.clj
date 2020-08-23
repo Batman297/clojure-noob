@@ -237,5 +237,7 @@
     :else (my-drop (my-dec m) xs)))
 
 (defn my-zipmap
-  [x]
-  x)
+  [[x & xs :as xst] [y & ys :as yst]]
+  (cond
+    (or (empty? xst) (empty? yst)) {}
+    :else (assoc (my-zipmap xs ys) x y)))
