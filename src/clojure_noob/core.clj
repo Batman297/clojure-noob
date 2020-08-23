@@ -194,3 +194,21 @@
 ;; 5 -2 => -2
 ;; 3 -2 => -1
 ;; 1 -2 => 0
+
+(defn my-mod
+  ;; hasil bagi x oleh y
+  [x y]
+  (let [x (mutlak x)]
+    (cond
+      (and (< x (mutlak y)) (neg? y)) (- x)
+      (and (< x (mutlak y)) (pos? y)) x
+      (neg? y) (my-mod (+ x y) y)
+      :else (my-mod (- x y) y))))
+
+(defn my-inc
+  [x]
+  (+ x 1))
+
+(defn my-dec
+  [x]
+  (- x 1))
