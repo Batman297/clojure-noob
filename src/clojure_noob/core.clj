@@ -130,7 +130,6 @@
 
 ;; re-implement several clojure's functions
 ;; sum product quot rem mod inc dec
-;; take drop zipmap map take-while drop-while
 
 (defn sum
   ;; nambahin semua 
@@ -213,7 +212,8 @@
   [x]
   (- x 1))
 
-;; belum kelarrrrrr
+;; take drop zipmap map take-while drop-while
+
 (defn my-take
   ;; ambil x sejumlah m
   [m [x & xs :as lst]]
@@ -241,3 +241,11 @@
   (cond
     (or (empty? xst) (empty? yst)) {}
     :else (assoc (my-zipmap xs ys) x y)))
+
+;; Clojure basic part three
+
+(defn sum 
+  [[x & xs]]
+  (if x
+    (+ x (sum xs))
+    0))
