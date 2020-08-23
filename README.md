@@ -3,7 +3,7 @@
 Hello, world!
 I'm learning clojure, yaayy.
 
-![alt text](/img/clojure.png)
+![alt text](img/clojure.png)
 
 
 ## License
