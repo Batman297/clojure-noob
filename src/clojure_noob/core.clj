@@ -212,3 +212,30 @@
 (defn my-dec
   [x]
   (- x 1))
+
+;; belum kelarrrrrr
+(defn my-take
+  ;; ambil x sejumlah m
+  [m [x & xs :as lst]]
+  (cond
+    (<= m 0) '()
+    (empty? lst) '()
+    :else (cons x (my-take (my-dec m) xs))))
+
+;; tryone
+;; 2 [1 2 3 4 5]
+;; 1 (1 [2 3 4 5])
+;; 2 (0 [3 4 5])
+;; '()
+
+(defn my-drop
+  ;; keluarin x sejumlah m
+  [m [x & xs :as lst]]
+  (cond
+    (empty? lst) '()
+    (<= m 0) lst
+    :else (my-drop (my-dec m) xs)))
+
+(defn my-zipmap
+  [x]
+  x)
