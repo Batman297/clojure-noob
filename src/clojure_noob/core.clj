@@ -242,6 +242,7 @@
     (or (empty? xst) (empty? yst)) {}
     :else (assoc (my-zipmap xs ys) x y)))
 
+
 ;; Clojure basic part three
 
 (defn sum 
@@ -320,3 +321,21 @@
       (= x 2) true
       (even? x) false
       :else (iter 3))))
+
+
+;; Clojure basic part four
+;; => higher order fucntions ++ list comprehensions
+
+(defn folding
+  ;; same as reduce
+  [f [x & xs]]
+  (if x
+    (f x (folding f xs))
+    (f)))
+
+(defn f-in-semua
+  ;; same as map
+  [f [x & xs]]
+  (if x
+    (cons (f x) (f-in-semua f xs))
+    []))
