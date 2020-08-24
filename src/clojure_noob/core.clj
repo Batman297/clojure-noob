@@ -245,7 +245,78 @@
 ;; Clojure basic part three
 
 (defn sum 
+  ;; nambahin semua
   [[x & xs]]
   (if x
-    (+ x (sum xs))
+    (+' x (sum xs))
     0))
+
+(defn sum'
+  ;; recur gunain loop & recur
+  [lst]
+  (loop [[x & xs] lst
+         res 0]
+    (if x
+      (recur xs (+ res x))
+      res)))
+
+(defn iter-prime
+  ;; fungsi tambahan untuk cek prime
+  [x y]
+  (cond
+    (= x y) true
+    (zero? (rem x y)) false
+    :else (iter-prime x (my-inc y))))
+
+(defn prime?
+  ;; cek prime kah?
+  [x]
+  (cond
+    (<= x 1) false
+    (= x 2) true
+    :else (iter-prime x 2)))
+
+(defn prime?2
+  ;; cek prime kah?2
+  [x]
+  (let [iter (fn iter
+               [y]
+               (cond
+                 (= x y) true
+                 (zero? (rem x y)) false
+                 :else (iter (my-inc y))))]
+    (cond
+      (<= x 1) false
+      (= x 2) true
+      :else (iter 2))))
+
+(defn prime?3
+  ;; cek prime kah?4 longkap bilangan genap
+  [x]
+  (let [iter (fn iter
+               [y]
+               (cond
+                 (= x y) true
+                 (zero? (rem x y)) false
+                 :else (iter (+ y 2))))]
+    (cond
+      (<= x 1) false
+      (= x 2) true
+      (even? x) false
+      :else (iter 3))))
+
+(defn prime?4
+  ;; cek prime kah?4 cek sampe akarnya ajah :v 
+  [x]
+  (let [sqrt-x (Math/sqrt x)
+        iter (fn iter
+               [y]
+               (cond
+                 (> y sqrt-x) true
+                 (zero? (rem x y)) false
+                 :else (iter (+ y 2))))]
+    (cond
+      (<= x 1) false
+      (= x 2) true
+      (even? x) false
+      :else (iter 3))))
