@@ -339,3 +339,14 @@
   (if x
     (cons (f x) (f-in-semua f xs))
     []))
+
+(defn square
+  ;; x^2
+  [x]
+  (* x x))
+
+(defn prime?5
+  ;; cek prime number
+  [x]
+  (->> (range 2 (inc (int (Math/sqrt x))))
+       (every? #(pos? (rem x %)))))
