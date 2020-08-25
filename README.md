@@ -3,7 +3,7 @@
 Hello, world!
 I'm learning clojure, yaayy.
 
-##
+## Mind Map
 ![alt text](img/Clojure.png)
 
 
