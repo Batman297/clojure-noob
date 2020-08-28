@@ -350,3 +350,78 @@
   [x]
   (->> (range 2 (inc (int (Math/sqrt x))))
        (every? #(pos? (rem x %)))))
+
+
+(defn fib-lst
+  ;; my fibonacci list
+  [x]
+  (let [fib (fn fib
+              [x]
+              (cond
+               (= x 1) 1
+               (= x 2) 1
+               :else (+ (fib (- x 1)) (fib (- x 2)))))]
+    (cond
+     (= x 0) '()
+     :else (conj (fib-lst (- x 1)) (fib x)))))
+
+(defn jarlax-fib
+  [x]
+  (take x (map first (iterate (fn [[a b]] [b (+ a b)]) [1 1]))))
+
+
+;; Clojure basic part five
+;; List comprehension
+
+(defn foo-one 
+  [x]
+  (for [i (range x)
+        j (range i x)]
+    [i j]))
+
+
+;; 4clojure.com
+
+(defn my-reverse
+  ;; reverse a list/vector
+  [[x & xs]]
+  (if x
+    (conj (my-reverse xs) x)
+    []))
+
+(defn pal
+  [[x & xs]]
+  (cond
+    (or (and x (empty? xs))
+        (= x (last xs))) true
+    (= x (last xs)) (pal (take (- (count xs) 1) xs))
+    :else false))
+
+(defn my-max
+  [& xs]
+  (->> xs
+       (sort)
+       (last)))
+
+(def my-max' #(last (sort %&)))
+
+(defn tcapt
+  [[x & xs :as xst]]
+  (let [wrd "HLOWRDAZ"
+        taker (fn taker
+                [m [y & ys]]
+                (cond
+                  (empty? wrd) '()
+                  (= m (first wrd)) m
+                  :else (taker (rest wrd))))]
+    (cond
+      (empty? xst) '()
+      :else (cons (taker x wrd) (tcapt xs)))))
+
+(defn tcap
+  [[x & xs :as xst]]
+  (let [seto (set "HLOWRDAZ")]
+    (cond
+      (empty? xst) ""
+      (not= nil (seto x)) (cons x (tcap xs))
+      :else (tcap xs))))
