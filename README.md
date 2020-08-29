@@ -4,10 +4,10 @@ Hello, world!
 I'm learning clojure, yaayy.
 
 ## Clojure
-![alt text](img/Clojure.png)
+![Clojure](img/Clojure.png)
 
 ## Clojure.core
-![alt text](img/Clojure-core.png)
+![Clojure.core](img/Clojure-core.png)
 
 ## License
 
