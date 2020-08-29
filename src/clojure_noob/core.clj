@@ -425,3 +425,9 @@
       (empty? xst) ""
       (not= nil (seto x)) (cons x (tcap xs))
       :else (tcap xs))))
+
+(defn compress
+  [[x & xs :as xst]]
+  (cond
+    (empty? xst) '()
+    :else (cons x (compress (drop-while #(= x %) xs)))))
