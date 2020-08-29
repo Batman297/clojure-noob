@@ -3,9 +3,11 @@
 Hello, world!
 I'm learning clojure, yaayy.
 
-## Mind Map
+## Clojure
 ![alt text](img/Clojure.png)
 
+## Clojure.core
+![alt text](img/Clojure-core.png)
 
 ## License
 
