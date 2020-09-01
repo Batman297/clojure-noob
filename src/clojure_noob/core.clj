@@ -122,6 +122,13 @@
     1
     (*' x (fak (dec x)))))
 
+;; tryone
+;; fak 4
+;; fak 4 * fak 3 => 4 * 3
+;; fak 3 * fak 2 => 3 * 2
+;; fak 2 * fak 1 => 2 * 1
+;; fak 1 => 1
+
 (defn folding
   [f [x & xs]]
   (if x  
@@ -266,6 +273,7 @@
   [x y]
   (cond
     (= x y) true
+
     (zero? (rem x y)) false
     :else (iter-prime x (my-inc y))))
 
@@ -369,17 +377,6 @@
   [x]
   (take x (map first (iterate (fn [[a b]] [b (+ a b)]) [1 1]))))
 
-
-;; Clojure basic part five
-;; List comprehension
-
-(defn foo-one 
-  [x]
-  (for [i (range x)
-        j (range i x)]
-    [i j]))
-
-
 ;; 4clojure.com
 
 (defn my-reverse
@@ -431,3 +428,9 @@
   (cond
     (empty? xst) '()
     :else (cons x (compress (drop-while #(= x %) xs)))))
+
+;; Clojure basic five
+;; list comprehension (for)
+
+(defn foo-one [n]
+  (for [i (range n)] (* i i)))
