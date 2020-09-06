@@ -434,3 +434,10 @@
 
 (defn foo-one [n]
   (for [i (range n)] (* i i)))
+
+;; projecteuler problem 3
+(def lprime (filter prime?4 (range 1000000)))
+
+(defn prob3 [x]
+  (for [lprm (filter prime?4 (range 1000000))
+        :when (zero? (rem x lprm))] lprm))
