@@ -9,6 +9,10 @@ I'm learning clojure, yaayy.
 ## Clojure.core
 ![Clojure.core](img/Clojure-core.png)
 
+## Clojure for the Brave and True
+![Clojure Brave](img/Clojure-brave.png)
+
+
 ## License
 
 Copyright © 2020 Tri Denda

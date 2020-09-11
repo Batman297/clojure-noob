@@ -64,15 +64,6 @@
     2 1
     (+ (fibo (- x 1)) (fibo (- x 2)))))
 
-;; projecteuler problem 1
-(defn prob1
-  [[x & xs :as lst]]
-  (cond 
-    (empty? lst) '()
-    (= 1 (count lst)) (list x)
-    (or (zero? (rem x 3)) (zero? (rem x 5))) (cons x (prob1 xs))
-    :else (prob1 xs)))
-
 ;; Clojure basic part three
 
 (defn iter-prime
@@ -435,9 +426,3 @@
 (defn foo-one [n]
   (for [i (range n)] (* i i)))
 
-;; projecteuler problem 3
-(def lprime (filter prime?4 (range 1000000)))
-
-(defn prob3 [x]
-  (for [lprm (filter prime?4 (range 1000000))
-        :when (zero? (rem x lprm))] lprm))
