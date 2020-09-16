@@ -622,3 +622,44 @@
       (if (> accumulated-size target)
         part
         (recur remaining (+ accumulated-size (:size (first remaining))))))))
+
+;; exercise do-things
+
+(defn dec-maker
+  [x]
+  #(- % x))
+
+(defn mapset
+  [f [x & xs :as xst]]
+  (if (empty? xst)
+    #{}
+    (conj (mapset f xs) (f x))))
+
+(defn matching-weird-part
+  [part]
+  (map #(hash-map
+         :name (clojure.string/replace (:name part) #"^left-" %)
+         :size (:size part)) ["right-" "top-" "bottom-left-" "bottom-right-"]))
+
+(defn symmetrize-body-parts2
+  "Expects a seq of maps that have a :name and :size"
+  [asym-body-parts]
+  (loop [remaining-asym-parts asym-body-parts
+         final-body-parts []]
+    (if (empty? remaining-asym-parts)
+      final-body-parts
+      (let [[part & remaining] remaining-asym-parts]
+        (recur remaining
+               (into final-body-parts
+                     (set (cons part (matching-weird-part part)))))))))
+
+(defn hit2
+  [asym-body-parts]
+  (let [sym-parts (symmetrize-body-parts2 asym-body-parts)
+        body-part-size-sum (reduce + (map :size sym-parts))
+        target (rand body-part-size-sum)]
+    (loop [[part & remaining] sym-parts
+           accumulated-size (:size part)]
+      (if (> accumulated-size target)
+        part
+        (recur remaining (+ accumulated-size (:size (first remaining))))))))
