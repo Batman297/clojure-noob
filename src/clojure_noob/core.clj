@@ -663,3 +663,21 @@
       (if (> accumulated-size target)
         part
         (recur remaining (+ accumulated-size (:size (first remaining))))))))
+
+(def human-consumption [8.1 7.3 6.6 5.0])
+(def critter-consumption [0.0 0.2 0.3 1.1])
+(defn unify-diet-data
+  [human critter]
+  {:human human
+   :critter critter})
+
+(def sum' #(reduce + %))
+(def avg #(/ (sum %) (count %)))
+(defn stats
+  [numbers]
+  (map #(% numbers) [sum count avg]))
+
+(def identities [{:alias "Batman" :real "Bruce Wayne"}
+                 {:alias "Siper-Man" :real "Peter Parker"}
+                 {:alias "Santa" :real "Your mom"}
+                 {:alias "Eastxer Bunny" :real "Your dad"}])
