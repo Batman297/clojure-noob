@@ -5,6 +5,4 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.10.1"]]
   :javac-options ["-target" "14" "-source" "14" "-Xlint:-options"]
-  :repl-options {:init-ns clojure-noob.core
-                 :init-ns clj-brave.core
-                 :init-ns re-implement.core})
+  :repl-options {:init-ns clojure-noob.core})

@@ -84,7 +84,7 @@
 ;; true?
 ;; false?
 
-;; cast:
+nnnn;; cast:
 ;; boolean
 
 
@@ -477,3 +477,372 @@
 ;; list?
 ;; map?
 ;; set?
+
+
+;; ------------------------------
+;; vectors
+;; ------------------------------
+
+;; create:
+;; vec
+;; vector
+;; vector-of
+
+;; use:
+;; conj
+;; peek
+;; pop
+;; first
+;; rest
+
+
+;; ------------------------------
+;; maps
+;; ------------------------------
+
+;; create:
+;; hash-map
+;; array-map
+;; zipmap
+;; sorted-map
+;; sorted-map-by
+;; bean
+;; frequencies
+
+;; use:
+;; assoc
+;; assoc-in
+;; dissoc
+;; find
+;; key
+;; val
+;; keys
+;; vals
+;; get
+;; get-in
+;; update
+;; select-keys
+;; merge
+;; merge-with
+;; reduce-kv
+
+;; use (sorted collections):
+;; rseq
+;; subseq
+;; rsubseq
+
+
+;; ------------------------------
+;; sets
+;; ------------------------------
+
+;; create:
+;; hash-set
+;; set
+;; sorted-set
+;; sorted-set-by
+
+;; use:
+;; conj
+;; disj
+;; get
+
+
+;; ------------------------------
+;; structs
+;; ------------------------------
+
+;; create:
+;; defstruct
+;; create-struct
+;; struct
+;; struct-map
+;; accessor
+
+;; use:
+;; get
+;; assoc
+
+
+;; ------------------------------
+;; sequences
+;; ------------------------------
+
+;; create:
+;; seq
+;; sequence
+;; eduction
+;; repeat
+;; replicate
+;; range
+;; repeatedly
+;; iterate
+;; lazy-seq
+;; lazy-cat
+;; cycle
+;; interleave
+;; interpose
+;; tree-seq
+;; xml-seq
+;; enumeration-seq
+;; iterator-seq
+;; file-seq
+;; line-seq
+;; resultset-seq
+
+;; use:
+;; first
+;; second
+;; last
+;; rest
+;; next
+;; ffirst
+;; nfrist
+;; fnext
+;; nnext
+;; nth
+;; nthnext
+;; nthrest
+;; rand-nth
+;; butlast
+;; take
+;; take-last
+;; take-nth
+;; take-while
+;; drop
+;; drop-last
+;; drop-while
+
+;; use (modification):
+;; conj
+;; concat
+;; distinct
+;; group-by
+;; partition
+;; partition-all
+;; partition-by
+;; split-at
+;; split-with
+;; filter
+;; filterv
+;; remove
+;; replace
+;; shuffle
+;; random-sample
+;; flatten
+;; sort
+;; sort-by
+;; reverse
+;; dedupe
+
+;; use (iteration):
+;; for
+;; doseq
+;; map
+;; mapv
+;; map-indexed
+;; keep
+;; keep-indexed
+;; mapcat
+;; reduce
+;; reductions
+;; transduce
+;; max-key
+;; min-key
+;; doall
+;; dorun
+
+
+;; ------------------------------
+;; transients
+;; ------------------------------
+
+;; create:
+;; transient
+;; persistent!
+
+;; use (general):
+;; conj!
+;; pop!
+;; assoc!
+;; dissoc!
+;; disj!
+
+
+;; ------------------------------
+;; variables
+;; ------------------------------
+
+;; create:
+;; def
+;; defonce
+;; intern
+;; declare
+
+;; use:
+;; set!
+;; alter-var-root
+;; binding
+;; with-bindings
+;; with-bindings*
+;; with-local-vars
+;; letfn
+;; gensym
+
+;; inspect:
+;; var
+;; find-var
+;; var-get
+;; var?
+;; bound?
+;; resolve
+;; ns-resolve
+;; special-symbol?
+
+
+;; ------------------------------
+;; namespaces
+;; ------------------------------
+
+;; create and delete:
+;; ns
+;; create-ns
+;; remove-ns
+
+;; inspect:
+;; *ns*
+;; ns-name
+;; all-ns
+;; the-ns
+;; find-ns
+;; ns-publics
+;; ns-interns
+;; ns-refers
+;; ns-aliasses
+;; ns-imports
+;; ns-map
+
+;; use:
+;; in-ns
+;; ns-resolve
+;; ns-unalias
+;; ns-unmap
+;; alias
+
+;; misc:
+;; namespace-munge
+
+
+;; ------------------------------
+;; user defined types
+;; ------------------------------
+
+;; general:
+;; defprotocol
+;; defrecord
+;; deftype
+;; reify
+;; extend
+;; extend-protocol
+;; extend-type
+;; extenders
+
+
+;; ------------------------------
+;; metadata
+;; ------------------------------
+
+;; general:
+;; meta
+;; with-meta
+;; vary-meta
+;; reset-meta!
+;; alter-meta!
+
+
+;; ------------------------------
+;; require or import
+;; ------------------------------
+
+;; general:
+;; use
+;; require
+;; import
+;; refer-clojure
+;; refer
+
+
+;; ------------------------------
+;; code
+;; ------------------------------
+
+;; general:
+;; *compile-files*
+;; *compile-path*
+;; *file*
+;; *warn-on-reflection*
+;; compile
+;; load
+;; load-file
+;; load-reader
+;; load-string
+;; read
+;; read-string
+;; gen-class
+;; gen-interface
+;; loaded-libs
+;; test
+
+
+;; ------------------------------
+;; io
+;; ------------------------------
+
+;; general:
+;; *in*
+;; *out*
+;; *err*
+;; print
+;; printf
+;; println
+;; pr
+;; prn
+;; print-str
+;; println-str
+;; pr-str
+;; prn-str
+;; newline
+;; flush
+;; read-line
+;; slurp
+;; spit
+;; with-in-str
+;; with-out-str
+;; with-open
+
+
+;; ------------------------------
+;; repl
+;; ------------------------------
+
+;; general:
+;; *1
+;; *2
+;; *3
+;; *e
+;; *print-dup*
+;; *print-length*
+;; *print-level*
+;; *print-meta*
+;; *print-readably*
+
+
+;; ------------------------------
+;; misc
+;; ------------------------------
+
+;; general:
+;; *clojure-version*
+;; clojure-version
+;; *command-line-args*
+;; time
