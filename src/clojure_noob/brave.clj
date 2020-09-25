@@ -1,5 +1,7 @@
 (ns clj-brave.core)
 
+(def brave? true)
+
 ;; Clojure for the Brave and True
 ;; learn the ultimate language and become a better programmer
 
@@ -270,7 +272,8 @@
   {0 {:makes-blood-puns? false, :has-pulse? true, :name "McFishwich"}
    1 {:makes-blood-puns? false, :has-pulse? true, :name "McMackson"}
    2 {:makes-blood-puns? true, :has-pulse? false, :name "Damon Salva"}
-   3 {:makes-blood-puns? true, :has-pulse? true, :name "Mickey Mouse"}})
+   3 {:makes-blood-puns? true, :has-pulse? true, :name "Mickey Mouse"}
+   4 {:makes-blood-puns? true, :has-pulse? false, :name "John Lennon"}})
 
 (defn vampire-related-details
   [social-security-number]
@@ -287,4 +290,3 @@
   [social-security-numbers]
   (first (filter vampire?
                  (map vampire-related-details social-security-numbers))))
-

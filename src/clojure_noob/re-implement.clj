@@ -1,4 +1,4 @@
-(ns re-implement.core)
+(ns reip.core)
 
 ;; ------------------------------
 ;; numbers
@@ -10,6 +10,17 @@
 ;; *
 ;; /
 ;; quot
+(defn mutlak
+  [x]
+  (if (neg? x)
+    (- x)
+    x))
+
+(defn my-quot
+  ;; blm kelar nih
+  [x y]
+  (* x y))
+
 ;; rem
 ;; mod
 ;; inc
@@ -84,7 +95,7 @@
 ;; true?
 ;; false?
 
-nnnn;; cast:
+;; cast:
 ;; boolean
 
 
