@@ -1,17 +1,12 @@
 # clojure-noob
 
-Hello, world!
-I'm learning clojure, yaayy.
+Hi, there! I'm learning clojure. Yaayyy!!
 
 ## Clojure
 ![Clojure](img/Clojure.png)
 
 ## Clojure.core
 ![Clojure.core](img/Clojure-core.png)
-
-## Clojure for the Brave and True
-![Clojure Brave](img/Clojure-brave.png)
-
 
 ## License
 
